@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "Engine"
+		},
+		{
+			"path": "Game"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"ios": "cpp"
+		}
+	}
+}
