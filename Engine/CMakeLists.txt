@@ -3,6 +3,8 @@ project(Engine VERSION 0.0.1)
 
 add_compile_definitions(DRPY_PLATFORM_WINDOWS DRPY_BUILD_DLL)
 
+add_subdirectory(external/glfw2 bin/x86_64/lib)
+
 set(LIBRARY_OUTPUT_PATH ../bin/x86_64/lib)
 
 set(Engine_SOURCES src/Derpy/Engine.cpp)
