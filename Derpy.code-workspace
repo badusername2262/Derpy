@@ -85,7 +85,9 @@
 			"__verbose_abort": "cpp",
 			"locale": "cpp",
 			"queue": "cpp",
-			"stack": "cpp"
+			"stack": "cpp",
+			"hash_map": "cpp",
+			"list": "cpp"
 		}
 	}
 }
