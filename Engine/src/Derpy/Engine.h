@@ -1,8 +1,7 @@
 #pragma once
 
 #include "core.h"
-#include "pthread.h"
-#include <iostream>
+#include "Logging.h"
 
 namespace DERPY {
 

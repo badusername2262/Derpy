@@ -1,6 +1,6 @@
 #include "Derpy.h"
 
-int main(int argc, char** argv)
+int main()
 {
 
     DERPY::Engine* app;
