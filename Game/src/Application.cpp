@@ -3,9 +3,8 @@
 int main()
 {
 
-    DERPY::Engine* app;
+    DERPY::Engine app;
 
-    app->Run();
-    delete app;
+    app.Run();
 
 }

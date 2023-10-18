@@ -11,8 +11,10 @@ namespace DERPY {
     }
 
     void Engine::Run(){
-        LOG_INFO("hello");
-        while(true);
+        LOG_INFO("this is an info log!");
+        LOG_WARNING("this is a warning log!");
+        LOG_ERROR("this is an error log!");
+        system("pause");
     }
 
 }
