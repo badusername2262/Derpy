@@ -1,6 +1,8 @@
 #pragma once
 
 #include "core.h"
+#include "pthread.h"
+#include <iostream>
 
 namespace DERPY {
 
@@ -8,11 +10,8 @@ namespace DERPY {
     {
     public:
         Engine();
-        virtual ~Engine();
+        ~Engine();
 
         void Run();
     };
-
-    Engine* CreateWindow();
-
 }

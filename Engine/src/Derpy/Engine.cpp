@@ -11,7 +11,8 @@ namespace DERPY {
     }
 
     void Engine::Run(){
-        while (true);
+        std::cout << "hello I'm derpy!" << std::endl;
+        system("pause");
     }
 
 }

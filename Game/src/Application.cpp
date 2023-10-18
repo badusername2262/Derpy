@@ -1,20 +1,11 @@
 #include "Derpy.h"
 
-class App : public DERPY::Engine
+int main(int argc, char** argv)
 {
-public:
-    App()
-    {
 
-    }
+    DERPY::Engine* app;
 
-    ~App()
-    {
+    app->Run();
+    delete app;
 
-    }
-};
-
-DERPY::Engine* DERPY::CreateWindow()
-{
-    return new App();
 }
