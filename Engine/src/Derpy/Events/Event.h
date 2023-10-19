@@ -1,5 +1,10 @@
 #pragma once
 
+#include "../Core.h"
+
+#include <string>
+#include <functional>
+
 namespace DERPY
 {
 
@@ -11,5 +16,4 @@ namespace DERPY
         KeyPressed, KeyReleased,
         MouseButtonPressed, MouseButtonReleasted, MouseMoved, MouseScrolled
     };
-
 }
