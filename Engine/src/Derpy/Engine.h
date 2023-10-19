@@ -1,11 +1,11 @@
 #pragma once
 
-#include "core.h"
+#include "Core.h"
 #include "Logging/Logging.h"
 
 namespace DERPY {
 
-    class DRPY_API Engine
+    class DERPY_API Engine
     {
     public:
         Engine();

@@ -16,4 +16,9 @@ namespace DERPY
         KeyPressed, KeyReleased,
         MouseButtonPressed, MouseButtonReleasted, MouseMoved, MouseScrolled
     };
+
+	class DERPY_API Event
+    {
+        
+    }
 }

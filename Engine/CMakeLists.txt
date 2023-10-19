@@ -7,14 +7,13 @@ add_subdirectory(external/glfw)
 
 set(LIBRARY_OUTPUT_PATH ../bin/x86_64/lib)
 
-set(extern_includes external/GLFW/include/)
+include_directories(external/GLFW/include/)
 
 set(Engine_SOURCES src/Derpy/Engine.cpp)
 
 add_library(Engine SHARED ${Engine_SOURCES})
 
 target_link_libraries(Engine GLFW opengl32)
-target_include_directories(Engine PRIVATE ${extern_includes})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
