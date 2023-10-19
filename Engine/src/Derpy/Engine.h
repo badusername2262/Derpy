@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core.h"
-#include "logging/Logging.h"
+#include "Logging/Logging.h"
 
 namespace DERPY {
 
@@ -12,7 +12,5 @@ namespace DERPY {
         virtual ~Engine();
 
         void Run();
-        void Render();
-        void Update();
     };
 }
