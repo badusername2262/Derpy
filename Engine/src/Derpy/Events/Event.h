@@ -17,9 +17,21 @@ namespace DERPY
         MouseButtonPressed, MouseButtonReleasted, MouseMoved, MouseScrolled
     };
 
-    #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
+    enum CategoryEvents
+    {
+        None = 0,
+        WindowEvent       = 1,
+        InputEvent        = 2,
+        KeyboardEvent     = 4,
+        MouseMoveEvent    = 8,
+        MouseButtonEvent  = 16
+    };
+
+    #define CLASS_TYPE_EVENT(type) static EventType GetStaticType() { return EventType::##type; }\
 								virtual EventType GetEventType() const override { return GetStaticType(); }\
 								virtual const char* GetName() const override { return #type; }
+
+    #define CLASS_CATEGORY_EVENT(category) virtual int GetCategoryFlags() const override { return category; }
 
 	class DERPY_API Event
     {
@@ -29,6 +41,10 @@ namespace DERPY
     	virtual int GetCategoryFlags() const = 0;
     	virtual std::string ToString() const { return GetName(); }
 
+        inline bool IsInCategory(CategoryEvents category)
+        {
+            return GetCategoryFlags() & category;
+        }
 	protected:
 	    bool m_Handled = false;
     };
