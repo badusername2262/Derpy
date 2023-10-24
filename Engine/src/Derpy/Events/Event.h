@@ -2,8 +2,9 @@
 
 #include "../Core.h"
 
-#include <string>
 #include <functional>
+#include <map>
+#include <string>
 #include <vector>
 
 namespace DERPY
@@ -51,28 +52,35 @@ namespace DERPY
 	    bool handled = false;
     };
 
-    template <typename EventType>
     class DERPY_API EventDispatcher
     {
     public:
-        EventDispatcher() {}
-    
-        bool DispatchEvent(EventType* event)
-        {
-            bool handled = false;
-            for (auto& listener : m_listeners)
+        using pEventHandler = std::function<void(const Event&)>;
+
+        template <typename pEventT>
+        static void Subscribe(pEventHandler peventHandler) {
+            
+            pEventHandlers[static_cast<int>(pEventT::GetEventTypy())].push_back([peventHandler](const Event& pEvent)
             {
-                listener(event);
-                handled = event->handled;
-                if (handled)
+                peventHandler(static_cast<const pEventT&>(pEvent));
+            });
+        }
+        
+        static void DispatchEvent(const Event& pEvent)
+        {
+            int pEventType = static_cast<int>(pEvent.GetEventType());
+
+            if (pEventHandlers.find(pEventType) != pEventHandlers.end())
+            {
+                for (const auto& pHandler : pEventHandlers[pEventType])
                 {
-                    break;
+                    pHandler(pEvent);
                 }
             }
-            return handled;
         }
+
     
     private:
-        std::vector<std::function<void(EventType*)>> m_listeners;
+        static std::map<int, std::vector<pEventHandler>> pEventHandlers;
     };
 }
