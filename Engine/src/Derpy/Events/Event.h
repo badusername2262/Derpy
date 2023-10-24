@@ -28,7 +28,7 @@ namespace DERPY
         MouseButtonEvent  = 16
     };
 
-    #define CLASS_TYPE_EVENT(type) static EventType GetStaticType() { return EventType::##type; }\
+    #define CLASS_TYPE_EVENT(type) static EventType GetStaticType() { return EventType::type; }\
 								virtual EventType GetEventType() const override { return GetStaticType(); }\
 								virtual const char* GetName() const override { return #type; }
 

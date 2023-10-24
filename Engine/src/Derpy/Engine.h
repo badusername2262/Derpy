@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Core.h"
-#include "Logging/Logging.h"
+#include "Events/Event.h"
 
 namespace DERPY {
 
