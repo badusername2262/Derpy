@@ -4,6 +4,7 @@
 
 #include <string>
 #include <functional>
+#include <vector>
 
 namespace DERPY
 {
@@ -46,6 +47,41 @@ namespace DERPY
             return GetCategoryFlags() & category;
         }
 	protected:
-	    bool m_Handled = false;
+	    bool handled = false;
+    };
+
+    template <typename EventType>
+    class EventDispatcher
+    {
+    public:
+        EventDispatcher() {}
+    
+        void RegisterListener(std::function<void(EventType*)> listener)
+        {
+            m_listeners.push_back(listener);
+        }
+    
+        void UnregisterListener(std::function<void(EventType*)> listener)
+        {
+            m_listeners.erase(std::remove(m_listeners.begin(), m_listeners.end(), listener), m_listeners.end());
+        }
+    
+        bool DispatchEvent(EventType* event)
+        {
+            bool handled = false;
+            for (auto& listener : m_listeners)
+            {
+                listener(event);
+                handled = event->handled;
+                if (handled)
+                {
+                    break;
+                }
+            }
+            return handled;
+        }
+    
+    private:
+        std::vector<std::function<void(EventType*)>> m_listeners;
     };
 }
