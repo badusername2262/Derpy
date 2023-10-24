@@ -52,20 +52,10 @@ namespace DERPY
     };
 
     template <typename EventType>
-    class EventDispatcher
+    class DERPY_API EventDispatcher
     {
     public:
         EventDispatcher() {}
-    
-        void RegisterListener(std::function<void(EventType*)> listener)
-        {
-            m_listeners.push_back(listener);
-        }
-    
-        void UnregisterListener(std::function<void(EventType*)> listener)
-        {
-            m_listeners.erase(std::remove(m_listeners.begin(), m_listeners.end(), listener), m_listeners.end());
-        }
     
         bool DispatchEvent(EventType* event)
         {

@@ -19,7 +19,7 @@ namespace DERPY
         std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "WindowResizeEvent: " << pWidth << ", " << pHeight;
+			ss << pWidth << ", " << pHeight;
 			return ss.str();
 		}
 
@@ -60,5 +60,5 @@ namespace DERPY
         CLASS_TYPE_EVENT(WindowMoved);
         CLASS_CATEGORY_EVENT(WindowEvent);
     };
-    
+
 }

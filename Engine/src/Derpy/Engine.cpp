@@ -17,9 +17,10 @@ namespace DERPY {
         LOG_INFO("Hello Derpy Is Running!");
 
         WindowResizeEvent e(1920, 1080);
+
         if(e.IsInCategory(WindowEvent))
         {
-            LOG_INFO_VAR("value", e.ToString());
+            LOG_INFO_VAR("Window Resize Event:", e.ToString());
         }
 
         system("pause");
