@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-#include "Events/EngineEvent.h"
+#include "Events/WindowEvent.h"
 #include "Logging/Logging.h"
 
 namespace DERPY {

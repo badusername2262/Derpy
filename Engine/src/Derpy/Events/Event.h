@@ -22,10 +22,11 @@ namespace DERPY
     {
         None = 0,
         WindowEvent       = 1,
-        InputEvent        = 2,
-        KeyboardEvent     = 4,
-        MouseMoveEvent    = 8,
-        MouseButtonEvent  = 16
+        EngineEvent       = 2,
+        InputEvent        = 4,
+        KeyboardEvent     = 8,
+        MouseMoveEvent    = 16,
+        MouseButtonEvent  = 32
     };
 
     #define CLASS_TYPE_EVENT(type) static EventType GetStaticType() { return EventType::type; }\

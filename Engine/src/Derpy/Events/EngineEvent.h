@@ -2,32 +2,30 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace DERPY
 {
 
-    class DERPY_API WindowResizeEvent : public Event
+    class DERPY_API EngineTickEvent : public Event
     {
-    public:
-        WindowResizeEvent(unsigned int width, unsigned int height)
-            :   pWidth(width), pHeight(height) {}
+        EngineTickEvent() {}
 
-        inline unsigned int GetWidth() const { return pWidth; }
-		inline unsigned int GetHeight() const { return pHeight; }
-
-        std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "WindowResizeEvent: " << pWidth << ", " << pHeight;
-			return ss.str();
-		}
-
-        CLASS_TYPE_EVENT(WindowResised);
-        CLASS_CATEGORY_EVENT(WindowEvent);
-    private:
-        unsigned int pWidth, pHeight;
+        CLASS_TYPE_EVENT(EngineTick);
+        CLASS_CATEGORY_EVENT(EngineEvent);
     };
 
+    class DERPY_API EngineUpdateEvent : public Event
+    {
+        EngineUpdateEvent() {}
 
+        CLASS_TYPE_EVENT(EngineUpdate);
+        CLASS_CATEGORY_EVENT(EngineEvent);
+    };
+
+    class DERPY_API EngineRenderEvent : public Event
+    {
+        EngineRenderEvent() {}
+
+        CLASS_TYPE_EVENT(EngineRender);
+        CLASS_CATEGORY_EVENT(EngineEvent);
+    };
 }
