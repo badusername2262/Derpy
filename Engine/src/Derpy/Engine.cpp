@@ -43,8 +43,6 @@ namespace DERPY {
 
         if (e.IsInCategory(WindowEvent))
             LOG_INFO("YES.");
-        if (e.IsInCategory(InputEvent))
-            LOG_INFO("NO.");
 
         system("pause");
     }

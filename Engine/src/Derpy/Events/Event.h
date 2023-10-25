@@ -66,14 +66,14 @@ namespace DERPY
     class DERPY_API EventDispatcher
     {
     public:
-        using pEventHandler = std::function<void(const Event&)>;
+        using pEventHandler = std::function<void(Event&)>;
 
         static void AddHandler(EventType pEventType, pEventHandler peventHandler)
         {
             pEventHandlers[pEventType].push_back(peventHandler);    
         }
         
-        static void DispatchEvent(const Event& pEvent)
+        static void DispatchEvent(Event& pEvent)
         {
             EventType pEventType = pEvent.GetEventType();
 
