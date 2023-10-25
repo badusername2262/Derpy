@@ -48,6 +48,17 @@ namespace DERPY
         {
             return GetCategoryFlags() & category;
         }
+
+        inline bool IsHandled() const
+        {
+            return handled;
+        }
+
+        inline void SetHandled(bool IsHandled)
+        {
+            handled = IsHandled;
+        }
+        
 	protected:
 	    bool handled = false;
     };

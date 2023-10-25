@@ -13,13 +13,21 @@ namespace DERPY {
 
     }
 
-    void HandleEvent(const Event& event) {
+    void HandleEvent(const Event& event)
+    {
+        if (event.IsHandled())
+        {
+            LOG_INFO("Event Has Already Been Handled.");
+            return;
+        }
+
         EventType eventType = event.GetEventType();
 
         switch (eventType) {
             case EventType::WindowResised :
-                const WindowResizeEvent& resiseevent = static_cast<const WindowResizeEvent&>(event);
-                LOG_INFO_VAR("Handled Resize Event:", resiseevent.ToString());
+                const WindowResizeEvent& ResiseEvent = static_cast<const WindowResizeEvent&>(event);
+                LOG_INFO_VAR("Handled Resize Event:", ResiseEvent.ToString());
+                const_cast<Event&>(event).SetHandled(true);
                 break;
         }
     }
@@ -32,6 +40,11 @@ namespace DERPY {
         WindowResizeEvent e(1920, 1080);
 
         EventDispatcher::DispatchEvent(e);
+
+        if (e.IsInCategory(WindowEvent))
+            LOG_INFO("YES.");
+        if (e.IsInCategory(InputEvent))
+            LOG_INFO("NO.");
 
         system("pause");
     }
