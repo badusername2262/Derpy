@@ -87,7 +87,8 @@
 			"queue": "cpp",
 			"stack": "cpp",
 			"hash_map": "cpp",
-			"list": "cpp"
+			"list": "cpp",
+			"map": "cpp"
 		}
 	}
 }

@@ -57,18 +57,14 @@ namespace DERPY
     public:
         using pEventHandler = std::function<void(const Event&)>;
 
-        template <typename pEventT>
-        static void Subscribe(pEventHandler peventHandler) {
-            
-            pEventHandlers[static_cast<int>(pEventT::GetEventTypy())].push_back([peventHandler](const Event& pEvent)
-            {
-                peventHandler(static_cast<const pEventT&>(pEvent));
-            });
+        static void AddHandler(EventType pEventType, pEventHandler peventHandler)
+        {
+            pEventHandlers[pEventType].push_back(peventHandler);    
         }
         
         static void DispatchEvent(const Event& pEvent)
         {
-            int pEventType = static_cast<int>(pEvent.GetEventType());
+            EventType pEventType = pEvent.GetEventType();
 
             if (pEventHandlers.find(pEventType) != pEventHandlers.end())
             {
@@ -81,6 +77,6 @@ namespace DERPY
 
     
     private:
-        static std::map<int, std::vector<pEventHandler>> pEventHandlers;
+        inline static std::map<EventType, std::vector<pEventHandler>> pEventHandlers;
     };
 }
