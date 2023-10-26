@@ -5,7 +5,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 add_compile_definitions(DRPY_PLATFORM_WINDOWS)
 
 if (CMAKE_GENERATOR MATCHES "Visual Studio 17 2022")
-link_directories(bin/debug)
+link_directories(../bin/debug)
 else()
 link_directories(../Engine/bin)
 endif()
