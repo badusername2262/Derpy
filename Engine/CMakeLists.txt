@@ -5,7 +5,7 @@ add_compile_definitions(DRPY_PLATFORM_WINDOWS DRPY_BUILD_DLL)
 
 add_subdirectory(external/glfw)
 
-set(LIBRARY_OUTPUT_PATH ../bin/x86_64/lib)
+set(LIBRARY_OUTPUT_PATH ../bin)
 
 include_directories(external/GLFW/include/)
 

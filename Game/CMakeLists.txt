@@ -4,7 +4,7 @@ project(Game VERSION 0.0.1)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 add_compile_definitions(DRPY_PLATFORM_WINDOWS)
 
-link_directories(../Engine/bin/x86_64/lib)
+link_directories(../Engine/bin)
 
 set(Extern_HEADERS ../Engine/src)
 
