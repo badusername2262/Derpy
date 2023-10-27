@@ -10,6 +10,13 @@ This project is still new and is being maintained (just slowly).
 
 Thanks,\
 Badusername2262.
+# How To Clone Derpy
+To clone Derpy and it's Git Modules all need is the command line version of git.\
+And to use this command in the terminal
+```
+git clone --recurse-submodules https://github.com/badusername2262/DERPY
+```
+
 # Visual Studio Cmake
 To compile the project in Visual Studio you have to use cmake in command line from the Derpy Directory.
 
@@ -27,13 +34,11 @@ cmake -DCMAKE_BUILD_TYPE=Release -G"Visual Studio 17 2022" && cmake --build . --
 # Visual Studio Code
 To use in visual Studio Code you will need a C++ compiler.\
 you can get a C++ comiler from **msys2.org**.
->**This way of compilation has only been tested with msys2 MinGW64 GCC 13**
+>**This way of compilation has only been tested with msys2 MinGW64 GCC 13.\
+You also will need to have the C/C++ Extension Pack installed to compile without errors**
 
->**You also will need to have the C/C++ Extension Pack installed to compile without errors**
+Once you have a C++ compiler of your choice installed you will need to open the **Derpy.code-workspace** file in Visual Studio Code.
 
-Once you have a version GCC installed you will need to open the **Derpy.code-workspace** file in Visual Studio Code.
-
-Then build the **Engine** project first, after it has finished compiling you can then build the **Game** project.\
-After you have compiled both you will need to move the .dll file from **Derpy/Engine/bin/Engine.dll** and move it to **Derpy/Game/bin** where the Game.exe is located.
-
-After this you should be able to run the Game.exe executable without any issues.
+First you have to build the **Engine** project first, after it has finished compiling you can then build the **Game** project.\
+After you have compiled both you will need to move the .dll file from **Derpy/Engine/bin/Engine.dll** and move it to **Derpy/Game/bin** where the Game.exe is located.\
+Once you have done that you should be able to run the Game.exe executable without any issues.
