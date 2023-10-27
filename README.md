@@ -34,6 +34,6 @@ you can get a C++ comiler from **msys2.org**.
 Once you have a version GCC installed you will need to open the **Derpy.code-workspace** file in Visual Studio Code.
 
 Then build the **Engine** project first, after it has finished compiling you can then build the **Game** project.\
-After you have compiled both you will need to move the .dll file from **Derpy/Engine/bin/Engine.dll** and move it to **Derpy/Game/bin** where the Game.exe is.
+After you have compiled both you will need to move the .dll file from **Derpy/Engine/bin/Engine.dll** and move it to **Derpy/Game/bin** where the Game.exe is located.
 
 After this you should be able to run the Game.exe executable without any issues.
