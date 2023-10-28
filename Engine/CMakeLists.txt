@@ -9,7 +9,7 @@ set(LIBRARY_OUTPUT_PATH ../bin)
 
 include_directories(external/GLFW/include/)
 
-set(Engine_SOURCES src/Derpy/Engine.cpp)
+set(Engine_SOURCES src/Derpy/Engine.cpp src/Derpy/Window.cpp src//Derpy/logging/Logging.cpp)
 
 add_library(Engine SHARED ${Engine_SOURCES})
 

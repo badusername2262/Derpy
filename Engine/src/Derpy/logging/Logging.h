@@ -20,14 +20,7 @@
 #endif
 
 // Define a function to format a timestamp
-std::string format_timestamp() {
-  std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
-  std::time_t time_t = std::chrono::system_clock::to_time_t(now);
-  std::tm* tm = std::localtime(&time_t);
-  char timestamp[20];
-  std::strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", tm);
-  return std::string(timestamp);
-}
+std::string format_timestamp();
 
 // Define macros for logging at different levels
 #define LOG_INFO_VAR(message, ...)    if (LOG_LEVEL <= LOG_LEVEL_INFO)    std::cout << ANSI_COLOUR_GREEN << "[" << format_timestamp() << "] [INFO] " << message << " " << __VA_ARGS__ << ANSI_COLOUR_RESET << std::endl

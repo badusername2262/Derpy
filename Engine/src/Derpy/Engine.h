@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "Window.h"
 
 namespace DERPY {
 
@@ -12,5 +13,8 @@ namespace DERPY {
         virtual ~Engine();
 
         void Run();
+    private:
+        Window* pWindow;
+        bool pRunning = true;
     };
 }

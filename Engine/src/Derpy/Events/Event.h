@@ -3,9 +3,6 @@
 #include "../Core.h"
 
 #include <functional>
-#include <map>
-#include <string>
-#include <vector>
 
 namespace DERPY
 {
@@ -88,6 +85,6 @@ namespace DERPY
 
     
     private:
-        inline static std::map<EventType, std::vector<pEventHandler>> pEventHandlers;
+        inline static std::unordered_map<EventType, std::vector<pEventHandler>> pEventHandlers;
     };
 }

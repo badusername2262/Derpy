@@ -1,12 +1,14 @@
+#include "../Pch.h"
 #include "Engine.h"
 
 #include "Events/WindowEvent.h"
-#include "Logging/Logging.h"
+
+#include <GLFW/glfw3.h>
 
 namespace DERPY {
 
     Engine::Engine(){
-
+        pWindow = Window::Create();
     }
     
     Engine::~Engine(){
@@ -43,6 +45,13 @@ namespace DERPY {
 
         if (e.IsInCategory(WindowEvent))
             LOG_INFO("YES.");
+
+        while (pRunning)
+        {
+            glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			pWindow->OnUpdate();
+        }
 
         system("pause");
     }
