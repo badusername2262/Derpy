@@ -31,9 +31,14 @@ namespace DERPY
 
         if (!GLFWInit)
         {
-
-            int success = glfwInit();
-            LOG_INFO_VAR("GLFW:", success);
+            if (!glfwInit())
+            {
+                LOG_WARNING("GLFW Not Initialized!");
+            }
+            else
+            {
+                LOG_INFO("GLFW Initialized!");
+            }
             
             GLFWInit = true;
         }
