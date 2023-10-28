@@ -19,7 +19,7 @@ namespace DERPY
         std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << pWidth << ", " << pHeight;
+			ss << "Window Resize Event: " << pWidth << ", " << pHeight;
 			return ss.str();
 		}
 

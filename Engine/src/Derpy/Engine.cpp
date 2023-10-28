@@ -28,7 +28,7 @@ namespace DERPY {
         switch (eventType) {
             case EventType::WindowResised :
                 const WindowResizeEvent& ResiseEvent = static_cast<const WindowResizeEvent&>(event);
-                LOG_INFO_VAR("Handled Resize Event:", ResiseEvent.ToString());
+                LOG_INFO_VAR(ResiseEvent.ToString());
                 const_cast<Event&>(event).SetHandled(true);
                 break;
         }

@@ -25,7 +25,7 @@ namespace DERPY
         pWidth = Properties.Width;
         pHeight = Properties.Height;
 
-        LOG_INFO_VAR("Window Properties:", WindowsWindow::ToString());
+        LOG_INFO_VAR(WindowsWindow::ToString());
 
         if (!glfwInit())
         {
