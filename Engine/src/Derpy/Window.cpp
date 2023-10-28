@@ -4,8 +4,6 @@
 namespace DERPY
 {
 
-    static bool GLFWInit = false;
-
     Window* Window::Create(const WindowProperties& Properties)
     {
         return new WindowsWindow(Properties);
@@ -29,18 +27,13 @@ namespace DERPY
 
         LOG_INFO_VAR("Window Properties:", WindowsWindow::ToString());
 
-        if (!GLFWInit)
+        if (!glfwInit())
         {
-            if (!glfwInit())
-            {
-                LOG_WARNING("GLFW Not Initialized!");
-            }
-            else
-            {
-                LOG_INFO("GLFW Initialized!");
-            }
-            
-            GLFWInit = true;
+            LOG_WARNING("GLFW Not Initialized!");
+        }
+        else
+        {
+            LOG_INFO("GLFW Initialized!");
         }
 
         pWindow = glfwCreateWindow((int)Properties.Width, (int)Properties.Height, pTitle.c_str(), nullptr, nullptr);
