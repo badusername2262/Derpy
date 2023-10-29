@@ -42,6 +42,8 @@ namespace DERPY {
 
     void WindowsWindow::Shutdown()
     {
+        LOG_INFO("Shutting Down.");
+        glfwDestroyWindow(pWindow);
         glfwTerminate();
     }
 
