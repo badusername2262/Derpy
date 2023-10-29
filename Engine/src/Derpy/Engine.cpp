@@ -47,7 +47,7 @@ namespace DERPY {
 
         if (e.IsInCategory(WindowEvent))
             LOG_INFO("Window Event.");
-        
+
         while(pRunning)
         {
             glClearColor(1, 0, 1, 1);
