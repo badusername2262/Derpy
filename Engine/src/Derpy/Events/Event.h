@@ -2,10 +2,7 @@
 
 #include "../Core.h"
 
-#include <functional>
-
-namespace DERPY
-{
+namespace DERPY {
 
     enum class EventType
     {

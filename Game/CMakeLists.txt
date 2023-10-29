@@ -21,6 +21,7 @@ set(Game_SOURCES src/Application.cpp)
 add_executable(Game ${Game_SOURCES})
 
 target_link_libraries(Game Engine.dll)
+target_precompile_headers(Game PRIVATE ../Engine/src/Pch.h)
 target_include_directories(Game PRIVATE ${Extern_HEADERS})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

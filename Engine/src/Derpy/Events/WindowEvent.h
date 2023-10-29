@@ -2,10 +2,7 @@
 
 #include "Event.h"
 
-#include <sstream>
-
-namespace DERPY
-{
+namespace DERPY {
 
     class DERPY_API WindowResizeEvent : public Event
     {

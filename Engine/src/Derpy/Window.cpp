@@ -1,8 +1,7 @@
 #include "../Pch.h"
 #include "Window.h"
 
-namespace DERPY
-{
+namespace DERPY {
 
     Window* Window::Create(const WindowProperties& Properties)
     {

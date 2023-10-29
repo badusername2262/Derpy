@@ -2,8 +2,7 @@
 
 #include "Event.h"
 
-namespace DERPY
-{
+namespace DERPY {
 
     class DERPY_API EngineTickEvent : public Event
     {

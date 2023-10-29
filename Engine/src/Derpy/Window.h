@@ -4,11 +4,7 @@
 #include "Events/Event.h"
 #include "../../external/GLFW/include/GLFW/glfw3.h"
 
-#include <functional>
-#include <sstream>
-
-namespace DERPY
-{
+namespace DERPY {
     struct WindowProperties
     {
         std::string Title;

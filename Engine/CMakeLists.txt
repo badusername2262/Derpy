@@ -12,5 +12,6 @@ include_directories(external/GLFW/include/)
 set(Engine_SOURCES src/Derpy/Engine.cpp src/Derpy/Window.cpp src//Derpy/logging/Logging.cpp)
 
 add_library(Engine SHARED ${Engine_SOURCES})
+target_precompile_headers(Engine PRIVATE src/Pch.h)
 
 target_link_libraries(Engine GLFW opengl32)

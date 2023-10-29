@@ -2,10 +2,7 @@
 
 #include "Event.h"
 
-#include <sstream>
-
-namespace DERPY
-{
+namespace DERPY {
 
     class DERPY_API MouseMovedEvent : Event
     {
@@ -23,7 +20,76 @@ namespace DERPY
 			return ss.str();
 		}
 
+        CLASS_TYPE_EVENT(MouseMoved);
+        CLASS_CATEGORY_EVENT(MouseButtonEvent | InputEvent);
     private:
         float pX, pY;
+    };
+
+    class DERPY_API MouseScrolledEvent : public Event
+    {
+    public:
+        MouseScrolledEvent(float Xoffset, float Yoffset)
+            :   pXoffset(Xoffset), pYoffset(Yoffset) {}
+        
+        inline float GetXoffset() const { return pXoffset; }
+        inline float GetYoffset() const { return pYoffset; }
+
+        std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Mouse Scrolled Event: " << pXoffset << ", " << pYoffset;
+			return ss.str();
+		}
+
+        CLASS_TYPE_EVENT(MouseScrolled);
+        CLASS_CATEGORY_EVENT(MouseButtonEvent | InputEvent);
+    private:
+        float pXoffset, pYoffset;
+    };
+
+    class DERPY_API MouseButtonCallEvent : public Event
+    {
+    public:
+        inline int GetMouseButton() const { return pButton; }
+
+        CLASS_CATEGORY_EVENT(MouseButtonEvent | InputEvent);
+    protected:
+        MouseButtonCallEvent(int Button)
+            :   pButton(Button) {}
+
+        int pButton;
+    };
+
+    class DERPY_API MouseButtonPressedEvent : public MouseButtonCallEvent
+    {
+    public:
+        MouseButtonPressedEvent(int Button)
+            :   MouseButtonCallEvent(Button) {}
+    
+        std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Mouse Buttton Pressed Event: " << pButton;
+			return ss.str();
+		}
+
+        CLASS_TYPE_EVENT(MouseButtonPressed);
+    };
+
+    class DERPY_API MouseButtonReleastedEvent : public MouseButtonCallEvent
+    {
+    public:
+        MouseButtonReleastedEvent(int Button)
+            :   MouseButtonCallEvent(Button) {}
+
+        std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Mouse Buttton Released Event: " << pButton;
+			return ss.str();
+		}
+
+        CLASS_TYPE_EVENT(MouseButtonReleasted);
     };
 }
