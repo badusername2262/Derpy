@@ -48,15 +48,12 @@ namespace DERPY {
         if (e.IsInCategory(WindowEvent))
             LOG_INFO("Window Event.");
         
-        for (int i =0; i < 100; i++)
+        while(pRunning)
         {
             glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 			pWindow->OnUpdate();
         }
-
-        pWindow->~Window();
-        delete pWindow;
     }
 
 }
