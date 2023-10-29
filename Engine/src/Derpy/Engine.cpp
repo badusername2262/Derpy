@@ -46,8 +46,8 @@ namespace DERPY {
         EventDispatcher::DispatchEvent(e);
 
         if (e.IsInCategory(WindowEvent))
-            LOG_INFO("YES.");
-
+            LOG_INFO("Window Event.");
+        
         while (pRunning)
         {
             glClearColor(1, 0, 1, 1);
@@ -55,6 +55,7 @@ namespace DERPY {
 			pWindow->OnUpdate();
         }
 
+        delete pWindow;
         system("pause");
     }
 

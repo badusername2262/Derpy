@@ -64,7 +64,7 @@ namespace DERPY {
 
         static void AddHandler(EventType pEventType, pEventHandler peventHandler)
         {
-            pEventHandlers[pEventType].push_back(peventHandler);    
+            pEventHandlers[pEventType].push_back(peventHandler);
         }
         
         static void DispatchEvent(Event& pEvent)
