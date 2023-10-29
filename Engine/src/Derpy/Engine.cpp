@@ -2,6 +2,8 @@
 #include "Engine.h"
 
 #include "Events/WindowEvent.h"
+#include "Events/KeyboardEvent.h"
+#include "Events/MouseEvent.h"
 
 #include <GLFW/glfw3.h>
 

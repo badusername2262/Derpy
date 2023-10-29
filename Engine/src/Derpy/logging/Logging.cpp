@@ -1,3 +1,4 @@
+#include "../../Pch.h"
 #include "Logging.h"
 
 std::string format_timestamp()
