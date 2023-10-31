@@ -6,6 +6,8 @@
 #include <iostream>
 #include <chrono>
 
-#include <Windows.h>
+#ifdef DRPY_PLATFORM_WINDOWS
+    #include <Windows.h>
+#endif
 
 #include "Derpy/logging/Logging.h"
