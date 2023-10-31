@@ -4,7 +4,7 @@
 
 namespace DERPY {
 
-    class DERPY_API MouseMovedEvent : Event
+    class DERPY_API MouseMovedEvent : public Event
     {
     public:
         MouseMovedEvent(float x, float y)

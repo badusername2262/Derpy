@@ -6,6 +6,7 @@ namespace DERPY {
 
     class DERPY_API EngineTickEvent : public Event
     {
+    public:
         EngineTickEvent() {}
 
         CLASS_TYPE_EVENT(EngineTick);
@@ -14,6 +15,7 @@ namespace DERPY {
 
     class DERPY_API EngineUpdateEvent : public Event
     {
+    public:
         EngineUpdateEvent() {}
 
         CLASS_TYPE_EVENT(EngineUpdate);
@@ -22,6 +24,7 @@ namespace DERPY {
 
     class DERPY_API EngineRenderEvent : public Event
     {
+    public:
         EngineRenderEvent() {}
 
         CLASS_TYPE_EVENT(EngineRender);

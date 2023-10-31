@@ -28,6 +28,7 @@ namespace DERPY {
 
     class DERPY_API WindowCloseEvent : public Event
     {
+    public:
         WindowCloseEvent() {}
 
         CLASS_TYPE_EVENT(WindowClose);
@@ -36,6 +37,7 @@ namespace DERPY {
 
     class DERPY_API WindowFocusEvent : public Event
     {
+    public:
         WindowFocusEvent() {}
 
         CLASS_TYPE_EVENT(WindowFocus);
@@ -44,6 +46,7 @@ namespace DERPY {
 
     class DERPY_API WindowWindowLostFocuseEvent : public Event
     {
+    public:
         WindowWindowLostFocuseEvent() {}
 
         CLASS_TYPE_EVENT(WindowLostFocuse);
@@ -52,6 +55,7 @@ namespace DERPY {
 
     class DERPY_API WindowMovedEvent : public Event
     {
+    public:
         WindowMovedEvent() {}
 
         CLASS_TYPE_EVENT(WindowMoved);
