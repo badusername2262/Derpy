@@ -88,7 +88,11 @@
 			"stack": "cpp",
 			"hash_map": "cpp",
 			"list": "cpp",
-			"map": "cpp"
+			"map": "cpp",
+			"time.h": "c",
+			"time_t.h": "c",
+			"unistd.h": "c",
+			"internal.h": "c"
 		}
 	}
 }
