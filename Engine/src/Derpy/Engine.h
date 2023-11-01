@@ -13,6 +13,8 @@ namespace DERPY {
         virtual ~Engine();
 
         void Run();
+
+        void OnEvent(Event& event);
     private:
         Window* pWindow;
         bool pRunning = true;

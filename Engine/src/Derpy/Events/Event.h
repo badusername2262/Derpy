@@ -10,7 +10,7 @@ namespace DERPY {
         WindowClose, WindowResised, WindowFocus, WindowLostFocuse, WindowMoved,
         EngineTick, EngineUpdate, EngineRender,
         KeyPressed, KeyReleased,
-        MouseButtonPressed, MouseButtonReleasted, MouseMoved, MouseScrolled
+        MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
     };
 
     enum CategoryEvents

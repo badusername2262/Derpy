@@ -48,7 +48,6 @@ namespace DERPY {
             {
                 const WindowCloseEvent& CloseEvent = static_cast<const WindowCloseEvent&>(event);
                 LOG_INFO_VAR(CloseEvent.ToString());
-                pRunning = false;
                 const_cast<Event&>(event).SetHandled(true);
                 break;
             }

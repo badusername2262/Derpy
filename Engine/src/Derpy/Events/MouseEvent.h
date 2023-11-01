@@ -77,10 +77,10 @@ namespace DERPY {
         CLASS_TYPE_EVENT(MouseButtonPressed);
     };
 
-    class DERPY_API MouseButtonReleastedEvent : public MouseButtonCallEvent
+    class DERPY_API MouseButtonReleasedEvent : public MouseButtonCallEvent
     {
     public:
-        MouseButtonReleastedEvent(int Button)
+        MouseButtonReleasedEvent(int Button)
             :   MouseButtonCallEvent(Button) {}
 
         std::string ToString() const override
@@ -90,6 +90,6 @@ namespace DERPY {
 			return ss.str();
 		}
 
-        CLASS_TYPE_EVENT(MouseButtonReleasted);
+        CLASS_TYPE_EVENT(MouseButtonReleased);
     };
 }

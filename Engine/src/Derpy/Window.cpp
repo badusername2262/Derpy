@@ -1,6 +1,11 @@
 #include "../Pch.h"
 #include "Window.h"
 
+#include "Events/WindowEvent.h"
+#include "Events/EngineEvent.h"
+#include "Events/KeyboardEvent.h"
+#include "Events/MouseEvent.h"
+
 namespace DERPY {
 
     Window* Window::Create(const WindowProperties& Properties)
@@ -41,26 +46,26 @@ namespace DERPY {
 
         
 		// Set GLFW callbacks
-		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
+		glfwSetWindowSizeCallback(pWindow, [](GLFWwindow* window, int width, int height)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			data.Width = width;
-			data.Height = height;
+			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
+			win.pWidth = width;
+			win.pHeight = height;
 
 			WindowResizeEvent event(width, height);
 			EventDispatcher::DispatchEvent(event);
 		});
 
-		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
+		glfwSetWindowCloseCallback(pWindow, [](GLFWwindow* window)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
 			WindowCloseEvent event;
 			EventDispatcher::DispatchEvent(event);
 		});
 
-		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
+		glfwSetKeyCallback(pWindow, [](GLFWwindow* window, int key, int scancode, int action, int mods)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
 
 			switch (action)
 			{
@@ -85,9 +90,9 @@ namespace DERPY {
 			}
 		});
 
-		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
+		glfwSetMouseButtonCallback(pWindow, [](GLFWwindow* window, int button, int action, int mods)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
 
 			switch (action)
 			{
@@ -106,17 +111,17 @@ namespace DERPY {
 			}
 		});
 
-		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
+		glfwSetScrollCallback(pWindow, [](GLFWwindow* window, double xOffset, double yOffset)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
 
 			MouseScrolledEvent event((float)xOffset, (float)yOffset);
 			EventDispatcher::DispatchEvent(event);
 		});
 
-		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
+		glfwSetCursorPosCallback(pWindow, [](GLFWwindow* window, double xPos, double yPos)
 		{
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
 
 			MouseMovedEvent event((float)xPos, (float)yPos);
 			EventDispatcher::DispatchEvent(event);
