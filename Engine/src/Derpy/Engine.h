@@ -17,6 +17,5 @@ namespace DERPY {
         void OnEvent(Event& event);
     private:
         Window* pWindow;
-        bool pRunning = true;
     };
 }

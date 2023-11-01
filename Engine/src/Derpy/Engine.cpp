@@ -10,6 +10,8 @@
 
 namespace DERPY {
 
+    bool pRunning = true;
+
     Engine::Engine(){
         pWindow = Window::Create();
         EventDispatcher::AddHandler(EventType::WindowResised, std::bind(&Engine::OnEvent, this, std::placeholders::_1));
@@ -48,6 +50,7 @@ namespace DERPY {
             {
                 const WindowCloseEvent& CloseEvent = static_cast<const WindowCloseEvent&>(event);
                 LOG_INFO_VAR(CloseEvent.ToString());
+                pRunning = false;
                 const_cast<Event&>(event).SetHandled(true);
                 break;
             }

@@ -42,6 +42,7 @@ namespace DERPY {
 
         pWindow = glfwCreateWindow((int)Properties.Width, (int)Properties.Height, pTitle.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(pWindow);
+		glfwSetWindowUserPointer(pWindow, this);
         SetVSync(true);
 
         

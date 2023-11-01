@@ -1,12 +1,13 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.4...3.20)
 project(Engine VERSION 0.0.1)
 
-option(BUILD_WINDOWS "Build for Windows" OFF)
-option(BUILD_LINUX "Build for Linux"     ON)
+option(BUILD_WINDOWS "Build for Windows" ON)
+option(BUILD_LINUX "Build for Linux"     OFF)
 
 if(BUILD_WINDOWS)
     add_compile_definitions(DRPY_PLATFORM_WINDOWS DRPY_BUILD_DLL)
     set(GLFW_BUILD_WIN32 ON CACHE BOOL "Build for windows")
+    add_compile_options(-fPIC)
 endif()
 if(BUILD_LINUX)
     add_compile_definitions(DRPY_PLATFORM_LINUX DRPY_BUILD_DLL)
