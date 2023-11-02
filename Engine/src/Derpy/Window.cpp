@@ -8,6 +8,13 @@
 
 namespace DERPY {
 
+	static void GLFWErrorCallback(int error, const char* description)
+	{
+		std::stringstream ss;
+		ss << "glfw error: " << error << "Discription: " << description;
+		LOG_ERROR_VAR(ss.str());
+	}
+
     Window* Window::Create(const WindowProperties& Properties)
     {
         return new WindowsWindow(Properties);
@@ -42,14 +49,12 @@ namespace DERPY {
 
         pWindow = glfwCreateWindow((int)Properties.Width, (int)Properties.Height, pTitle.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(pWindow);
-		glfwSetWindowUserPointer(pWindow, this);
         SetVSync(true);
 
-        
 		// Set GLFW callbacks
 		glfwSetWindowSizeCallback(pWindow, [](GLFWwindow* window, int width, int height)
 		{
-			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
+			WindowsWindow& win = *(WindowsWindow*)(glfwGetWindowUserPointer(window));
 			win.pWidth = width;
 			win.pHeight = height;
 
