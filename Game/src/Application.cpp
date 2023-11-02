@@ -3,7 +3,7 @@
 int main()
 {
 
-    DERPY::Engine* app = new DERPY::Engine();
+    DERPY::Engine* app = new DERPY::Engine;
 
     app->Run();
 
