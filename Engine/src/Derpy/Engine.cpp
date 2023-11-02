@@ -26,7 +26,6 @@ namespace DERPY {
     
     Engine::~Engine(){
         pWindow->~Window();
-        delete pWindow;
     }
 
     void Engine::OnEvent(Event& event)
