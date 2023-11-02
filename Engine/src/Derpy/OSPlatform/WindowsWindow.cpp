@@ -1,10 +1,10 @@
-#include "../Pch.h"
-#include "Window.h"
+#include "../../Pch.h"
+#include "WindowsWindow.h"
 
-#include "Events/WindowEvent.h"
-#include "Events/EngineEvent.h"
-#include "Events/KeyboardEvent.h"
-#include "Events/MouseEvent.h"
+#include "../Events/WindowEvent.h"
+#include "../Events/EngineEvent.h"
+#include "../Events/KeyboardEvent.h"
+#include "../Events/MouseEvent.h"
 
 namespace DERPY {
 

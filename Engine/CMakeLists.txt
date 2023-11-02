@@ -18,9 +18,22 @@ set(LIBRARY_OUTPUT_PATH ../bin)
 
 include_directories(external/GLFW/include/)
 
-set(Engine_SOURCES src/Derpy/Engine.cpp src/Derpy/Window.cpp src//Derpy/logging/Logging.cpp)
+set(Windows_Engine_SOURCES 
+        src/Derpy/Engine.cpp
+        src/Derpy/OSPlatform/WindowsWindow.cpp
+        src/Derpy/logging/Logging.cpp)
 
-add_library(Engine SHARED ${Engine_SOURCES})
+set(Linux_Engine_SOURCES 
+        src/Derpy/Engine.cpp
+        src/Derpy/OSPlatform/LinuxWindow.cpp
+        src/Derpy/logging/Logging.cpp)
+
+if(GLFW_BUILD_WIN32)
+add_library(Engine SHARED ${Windows_Engine_SOURCES})
+elseif(GLFW_BUILD_X11)
+add_library(Engine SHARED ${Linux_Engine_SOURCES})
+endif()
+
 target_precompile_headers(Engine PRIVATE src/Pch.h)
 
 if(GLFW_BUILD_WIN32)

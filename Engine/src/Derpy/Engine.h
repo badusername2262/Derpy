@@ -2,7 +2,12 @@
 
 #include "Core.h"
 #include "Events/Event.h"
-#include "Window.h"
+
+#ifdef DRPY_PLATFORM_WINDOWS
+    #include "OSPlatform/WindowsWindow.h"
+#elif DRPY_PLATFORM_LINUX
+    #include "OSPlatform/LinuxWindow.h"
+#endif
 
 namespace DERPY {
 
