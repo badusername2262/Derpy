@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.4...3.20)
 project(Game VERSION 0.0.1)
 
-option(BUILD_WINDOWS "Build for Windows" ON)
-option(BUILD_LINUX "Build for Linux" OFF)
+option(BUILD_WINDOWS "Build for Windows" OFF)
+option(BUILD_LINUX "Build for Linux"     ON)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 
