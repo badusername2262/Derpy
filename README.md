@@ -1,44 +1,98 @@
 # Derpy
-**Welcome To the home of Derpy Game Engine.**
 
-While name Derpy is not an acronym, it is a fitting name.\
-The reason for this is that the deffintion of Derpy is "foolish or stupid".\
-So welcome to my stupid Game Engine!!
+**Welcome to the home of the Derpy Game Engine.**
 
-Unfortunately there isn't much here at the moment. \
-This project is still new and is being maintained (just slowly).
+While the name "Derpy" is not an acronym, it is a fitting name.\
+The reason for this is that the definition of "Derpy" is "foolish or stupid."\
+So, welcome to my silly Game Engine!!
 
-Thanks,\
-Badusername2262.
-# How To Clone Derpy
-To clone Derpy and it's Git Modules all need is the command line version of git.\
-And to use this command in the terminal
-```
+Unfortunately, there isn't much here at the moment.\
+This project is still new and is being maintained, albeit slowly.
+
+## How To Clone Derpy
+
+To clone Derpy and its Git Modules, all you need is the command line version of Git. Use this command in the terminal:
+
+```shell
 git clone --recurse-submodules https://github.com/badusername2262/DERPY
 ```
 
 # Visual Studio Cmake
-To compile the project in Visual Studio you have to use cmake in command line from the Derpy Directory.
+To compile the project in Visual Studio, you have to use CMake from the Derpy source directory.
 
 >**Only tested in visual studio 17 2022**
 
-To build Derpy in Debug you would use this command. what the command does is generates the .sln file then compiles it in **x64 Debug mode**
+To build Derpy in Debug mode, use this command. This command generates the .sln file and compiles it in **Debug mode**:
+
 ```Cmake 17 2022
 cmake -G"Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Debug -B build && cd build && cmake --build . --target ALL_BUILD --config Debug
 ```
 
-To build Derpy in Release you would use this command. what the command does is generates the .sln file then compiles it in **x64 Release mode**
+To build Derpy in Release mode, use this command. This command generates the .sln file and compiles it in **Release mode**:
 ```Cmake 17 2022
 cmake -G"Visual Studio 17 2022" -DCMAKE_BUID_TYPE=Release -B build && cd build && cmake --build . --target ALL_BUILD --config Release
 ```
 # Visual Studio Code
-To use in visual Studio Code you will need a C++ compiler.\
-you can get a C++ comiler from **msys2.org**.
+To use Visual Studio Code, you will need a C++ compiler. You can get a C++ compiler from **msys2.org**.
+
 >**This way of compilation has only been tested with msys2 MinGW64 GCC 13.\
-You also will need to have the C/C++ Extension Pack installed to compile without errors**
+You also need to have the C/C++ Extension Pack installed to compile without errors.**
 
-Once you have a C++ compiler of your choice installed you will need to open the **Derpy.code-workspace** file in Visual Studio Code.
+Once you have a C++ compiler of your choice installed, open the **Derpy.code-workspace** file in Visual Studio Code.
 
-First you have to build the **Engine** project first, after it has finished compiling you can then build the **Game** project.\
-After you have compiled both you will need to move the .dll file from **Derpy/Engine/bin/Engine.dll** and move it to **Derpy/Game/bin** where the Game.exe is located.\
-Once you have done that you should be able to run the Game.exe executable without any issues.
+First, you have to build the **Engine project**. After it has finished compiling, you can then build the **Game** project.\
+After you have compiled both, move the .dll file from **Derpy/Engine/bin/Engine.dll** to **Derpy/Game/bin** where Game.exe is located.\
+Once you have done that, you should be able to run the **Game.exe** executable without any issues.
+
+# In-Source Build With Cmake For Windows
+If you are planning to build in source, there are 3 steps at the moment.
+
+The first step is to open a terminal or CMake-GUI in **Derpy/Engine**. Once inside, build the CMake file for your Generator of choice.
+
+>You can do this by using **"CMake -G"** to see what Generators your version of CMake has.
+
+>**This one is for Windows systems with Msys2 Mingw64, as Ninja comes pre-installed with it.**
+
+```Cmake 17 2022
+cmake -B build && cd build && Ninja
+```
+This command should build **libGLFW.a, libEngine.dll, and libEngine.dll.a** in the **Derpy/Engine/bin** directory. **If you are building with Msys2 Mingw64.**
+
+For the second step, you have to go from **Derpy/Engine/build** to **Derpy/Game**. Once there, you will have to do what you did in step one.
+
+```Cmake 17 2022
+cmake -B build && cd build && Ninja
+```
+
+But this time, instead of building the libraries, it will build **Game.exe** in the **Derpy/Game/bin** directory.
+
+That will conclude the first and second steps respectively. As for the third step, all you need to do is copy **libEngine.dll** from **Derpy/Engine/bin** to *Derpy/Game/bin**. Once you have done this, you should be able to run **Game.exe** located in **Derpy/Game/bin** directory without any errors, as long as it is running through the **Msys2 Terminal** unless you have added **c:/msys64/mingw64/bin** to your system environment variables.
+
+# In-Source Build With CMake For Linux
+If you are planning to build in source on Linux, there are only two steps to this.
+
+The first step is to open a terminal or CMake-GUI in **Derpy/Engine**. Once inside, build the CMake file for your Generator of choice.
+
+>You can do this by using **"CMake -G"** to see what Generators your version of CMake has.
+
+>**This one is for Ubuntu systems with Gcc and G++ installed. Ubuntu should come with a version of Make installed.**
+
+```Cmake 17 2022
+cmake -B build && cd build && Make
+```
+This command should build **libGLFW.a, libEngine.dll, and libEngine.dll.a** in the **Derpy/Engine/bin** directory. **If you are building with Msys2 Mingw64.**
+
+For the second step, go from **Derpy/Engine/build** to **Derpy/Game**. Once there, do what you did in step one.
+
+```Cmake 17 2022
+cmake -B build && cd build && Make
+```
+But this time, instead of building the libraries, it will build **Game** in the **Derpy/Game/bin** directory.
+
+After you have completed these two steps, you should be able to run **Game**, even without the use of a terminal.
+
+# End of README.md
+Hey, if you have read all the way through this README.md file, thank you. I spent a long time writing this README file as this is my first proper attempt at making a Game Engine. If you have any feedback about this README file, please send it to Badusername2262@gmail.com. I would love to read your feedback.
+
+Thanks,\
+Badusername2262.
