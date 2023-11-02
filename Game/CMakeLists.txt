@@ -1,15 +1,12 @@
 cmake_minimum_required(VERSION 3.4...3.20)
 project(Game VERSION 0.0.1)
 
-option(BUILD_WINDOWS "Build for Windows" OFF)
-option(BUILD_LINUX "Build for Linux"     ON)
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 
-if (BUILD_WINDOWS)
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     add_compile_definitions(DRPY_PLATFORM_WINDOWS)
     set(EngineLibraryName "Engine.dll")
-else()
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     add_compile_definitions(DRPY_PLATFORM_LINUX)
     set(EngineLibraryName "Engine.so")
 endif()
@@ -29,8 +26,6 @@ endif()
 find_library(ENGINE_LIBRARY Engine HINTS ${CMAKE_SOURCE_DIR}/../Engine/bin)
 
 target_link_libraries(Game PRIVATE ${ENGINE_LIBRARY})
-
-
 
 target_precompile_headers(Game PRIVATE ../Engine/src/Pch.h)
 target_include_directories(Game PRIVATE ${Extern_HEADERS})
