@@ -24,12 +24,12 @@ To compile the project in Visual Studio you have to use cmake in command line fr
 
 To build Derpy in Debug you would use this command. what the command does is generates the .sln file then compiles it in **x64 Debug mode**
 ```Cmake 17 2022
-cmake -G"Visual Studio 17 2022" -B build && cd build && cmake --build . --target ALL_BUILD --config Debug
+cmake -G"Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Debug -B build && cd build && cmake --build . --target ALL_BUILD --config Debug
 ```
 
 To build Derpy in Release you would use this command. what the command does is generates the .sln file then compiles it in **x64 Release mode**
 ```Cmake 17 2022
-cmake -G"Visual Studio 17 2022" -B build && cd build && cmake --build . --target ALL_BUILD --config Release
+cmake -G"Visual Studio 17 2022" -DCMAKE_BUID_TYPE=Release -B build && cd build && cmake --build . --target ALL_BUILD --config Release
 ```
 # Visual Studio Code
 To use in visual Studio Code you will need a C++ compiler.\
