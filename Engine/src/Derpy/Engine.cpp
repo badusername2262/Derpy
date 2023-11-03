@@ -8,6 +8,7 @@
 
 #include "Events/KeyboardInputMacros.h"
 
+#include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
 
 namespace DERPY {
@@ -104,6 +105,15 @@ namespace DERPY {
 
     void Engine::Run(){
         LOG_INFO("Hello Derpy Is Running!");
+
+        VkInstanceCreateInfo createInfo = {};
+        createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+        VkInstance instance;
+        VkResult result = vkCreateInstance(&createInfo, nullptr, &instance);
+
+        ASSERT(result != VK_SUCCESS, "No Vulkan");
+
+        LOG_INFO("Vulkan is available on this system.");
 
         while(pRunning)
         {
