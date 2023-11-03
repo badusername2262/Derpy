@@ -6,6 +6,8 @@
 #include "../Events/KeyboardEvent.h"
 #include "../Events/MouseEvent.h"
 
+#include "../Events/KeyboardInputMacros.h"
+
 namespace DERPY {
 
 	static void GLFWErrorCallback(int error, const char* description)
@@ -78,19 +80,19 @@ namespace DERPY {
 			{
 				case GLFW_PRESS:
 				{
-					KeyPressedEvent event(key, 0);
+					KeyPressedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key), 0);
 					EventDispatcher::DispatchEvent(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					KeyReleasedEvent event(key);
+					KeyReleasedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key));
 					EventDispatcher::DispatchEvent(event);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
-					KeyPressedEvent event(key, 1);
+					KeyPressedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key), 1);
 					EventDispatcher::DispatchEvent(event);
 					break;
 				}
