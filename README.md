@@ -92,7 +92,7 @@ But this time, instead of building the libraries, it will build **Game** in the 
 After you have completed these two steps, you should be able to run **Game**, even without the use of a terminal.
 
 # End of README.md
-Hey, if you have read all the way through this README.md file, thank you. I spent a long time writing this README file as this is my first proper attempt at making a Game Engine. If you have any feedback about this README file, please send it to Badusername2262@gmail.com. I would love to read your feedback.
+Hey, if you have read all the way through this README.md file, thank you. I spent a long time writing this as this is my first proper attempt at making a Game Engine. If you have any feedback about this README file, please send it to Badusername2262@gmail.com. I would love to read your feedback.
 
 Thanks,\
 Badusername2262.
