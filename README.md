@@ -4,7 +4,7 @@
 
 While the name "Derpy" is not an acronym, it is a fitting name.\
 The reason for this is that the definition of "Derpy" is "foolish or stupid."\
-So, welcome to my silly Game Engine!!
+So, welcome to my foolish atempt at a Game Engine!!
 
 Unfortunately, there isn't much here at the moment.\
 This project is still new and is being maintained, albeit slowly.
