@@ -6,6 +6,8 @@
 #include "Events/MouseEvent.h"
 #include "Events/EngineEvent.h"
 
+#include "Events/KeyboardInputMacros.h"
+
 #include <GLFW/glfw3.h>
 
 namespace DERPY {
@@ -42,59 +44,59 @@ namespace DERPY {
         switch (eventType) {
             case EventType::WindowResised :
             {
-                const WindowResizeEvent& ResiseEvent = static_cast<const WindowResizeEvent&>(event);
+                WindowResizeEvent& ResiseEvent = static_cast<WindowResizeEvent&>(event);
                 LOG_INFO_VAR(ResiseEvent.ToString());
-                const_cast<Event&>(event).SetHandled(true);
+                event.SetHandled(true);
                 break;
             }
             case EventType::WindowClose :
             {
-                const WindowCloseEvent& CloseEvent = static_cast<const WindowCloseEvent&>(event);
+                WindowCloseEvent& CloseEvent = static_cast<WindowCloseEvent&>(event);
                 LOG_INFO_VAR(CloseEvent.ToString());
                 pRunning = false;
-                const_cast<Event&>(event).SetHandled(true);
+                event.SetHandled(true);
                 break;
             }
             case EventType::MouseMoved :
             {
-                const MouseMovedEvent& MouseMoveEvent = static_cast<const MouseMovedEvent&>(event);
+                MouseMovedEvent& MouseMoveEvent = static_cast<MouseMovedEvent&>(event);
                 LOG_INFO_VAR(MouseMoveEvent.ToString());
-                const_cast<Event&>(event).SetHandled(true);
+                event.SetHandled(true);
                 break;
             }
             case EventType::MouseScrolled :
             {
-                const MouseScrolledEvent& MouseScrollEvent = static_cast<const MouseScrolledEvent&>(event);
+                MouseScrolledEvent& MouseScrollEvent = static_cast<MouseScrolledEvent&>(event);
                 LOG_INFO_VAR(MouseScrollEvent.ToString());
-                const_cast<Event&>(event).SetHandled(true);
+                event.SetHandled(true);
                 break;
             }
             case EventType::MouseButtonPressed :
             {
                 const MouseButtonPressedEvent& MousebuttonPressEvent = static_cast<const MouseButtonPressedEvent&>(event);
                 LOG_INFO_VAR(MousebuttonPressEvent.ToString());
-                const_cast<Event&>(event).SetHandled(true);
+                event.SetHandled(true);
                 break;
             }
             case EventType::MouseButtonReleased :
             {
                 const MouseButtonReleasedEvent& MousebuttonReleaseEvent = static_cast<const MouseButtonReleasedEvent&>(event);
                 LOG_INFO_VAR(MousebuttonReleaseEvent.ToString());
-                const_cast<Event&>(event).SetHandled(true);
+                event.SetHandled(true);
                 break;
             }
             case EventType::KeyPressed :
             {
                 const KeyPressedEvent& KeyPressEvent = static_cast<const KeyPressedEvent&>(event);
                 LOG_INFO_VAR(KeyPressEvent.ToString());
-                const_cast<Event&>(event).SetHandled(true);
+                event.SetHandled(true);
                 break;
             }
             case EventType::KeyReleased :
             {
                 const KeyReleasedEvent& KeyReleaseEvent = static_cast<const KeyReleasedEvent&>(event);
                 LOG_INFO_VAR(KeyReleaseEvent.ToString());
-                const_cast<Event&>(event).SetHandled(true);
+                event.SetHandled(true);
                 break;
             }
         }

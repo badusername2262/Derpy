@@ -27,3 +27,11 @@ std::string format_timestamp();
 #define LOG_INFO(message)    if (LOG_LEVEL <= LOG_LEVEL_INFO)    std::cout << ANSI_COLOUR_GREEN << "[" << format_timestamp() << "] [INFO] " << message << ANSI_COLOUR_RESET << std::endl
 #define LOG_WARNING(message) if (LOG_LEVEL <= LOG_LEVEL_WARNING) std::cout << ANSI_COLOUR_YELLOW << "[" << format_timestamp() << "] [WARNING] " << message << ANSI_COLOUR_RESET << std::endl
 #define LOG_ERROR(message)   if (LOG_LEVEL <= LOG_LEVEL_ERROR)   std::cerr << ANSI_COLOUR_RED << "[" << format_timestamp() << "] [ERROR] " << message << ANSI_COLOUR_RESET << std::endl
+
+#define ASSERT(condition, message) \
+do { \
+    if (!(condition)) { \
+        std::cerr << ANSI_COLOUR_RED << "[" << format_timestamp() << "] [ASSERTION FAILED] " << message << " (" << __FILE__ << ":" << __LINE__ << ")" << ANSI_COLOUR_RESET << std::endl; \
+        std::abort(); \
+    } \
+} while (false)

@@ -40,14 +40,9 @@ namespace DERPY {
 
         LOG_INFO_VAR(WindowsWindow::ToString());
 
-        if (!glfwInit())
-        {
-            LOG_WARNING("GLFW Not Initialized!");
-        }
-        else
-        {
-            LOG_INFO("GLFW Initialized!");
-        }
+		ASSERT(glfwInit(), "GLFW Not Initalized");
+
+        LOG_INFO("GLFW Initialized!");
 
         pWindow = glfwCreateWindow((int)Properties.Width, (int)Properties.Height, pTitle.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(pWindow);
@@ -57,9 +52,17 @@ namespace DERPY {
 		// Set GLFW callbacks
 		glfwSetWindowSizeCallback(pWindow, [](GLFWwindow* window, int width, int height)
 		{
-			WindowsWindow& win = *(WindowsWindow*)(glfwGetWindowUserPointer(window));
-			win.pWidth = width;
-			win.pHeight = height;
+			WindowsWindow* winPtr = static_cast<WindowsWindow*>(glfwGetWindowUserPointer(window));
+
+			if (winPtr) {
+			    WindowsWindow& win = *winPtr;
+			    win.pWidth = width;
+			    win.pHeight = height;
+			} 
+			else
+			{
+				ASSERT(winPtr, "winPtr is NULL!");
+			}
 
 			WindowResizeEvent event(width, height);
 			EventDispatcher::DispatchEvent(event);
@@ -67,14 +70,14 @@ namespace DERPY {
 
 		glfwSetWindowCloseCallback(pWindow, [](GLFWwindow* window)
 		{
-			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
+			WindowsWindow* winPtr = static_cast<WindowsWindow*>(glfwGetWindowUserPointer(window));
 			WindowCloseEvent event;
 			EventDispatcher::DispatchEvent(event);
 		});
 
 		glfwSetKeyCallback(pWindow, [](GLFWwindow* window, int key, int scancode, int action, int mods)
 		{
-			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
+			WindowsWindow* winPtr = static_cast<WindowsWindow*>(glfwGetWindowUserPointer(window));
 
 			switch (action)
 			{
@@ -101,7 +104,7 @@ namespace DERPY {
 
 		glfwSetMouseButtonCallback(pWindow, [](GLFWwindow* window, int button, int action, int mods)
 		{
-			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
+			WindowsWindow* winPtr = static_cast<WindowsWindow*>(glfwGetWindowUserPointer(window));
 
 			switch (action)
 			{
@@ -122,7 +125,7 @@ namespace DERPY {
 
 		glfwSetScrollCallback(pWindow, [](GLFWwindow* window, double xOffset, double yOffset)
 		{
-			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
+			WindowsWindow* winPtr = static_cast<WindowsWindow*>(glfwGetWindowUserPointer(window));
 
 			MouseScrolledEvent event((float)xOffset, (float)yOffset);
 			EventDispatcher::DispatchEvent(event);
@@ -130,7 +133,7 @@ namespace DERPY {
 
 		glfwSetCursorPosCallback(pWindow, [](GLFWwindow* window, double xPos, double yPos)
 		{
-			WindowsWindow& win = *(WindowsWindow*)glfwGetWindowUserPointer(window);
+			WindowsWindow* winPtr = static_cast<WindowsWindow*>(glfwGetWindowUserPointer(window));
 
 			MouseMovedEvent event((float)xPos, (float)yPos);
 			EventDispatcher::DispatchEvent(event);
