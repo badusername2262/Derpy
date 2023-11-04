@@ -1,5 +1,5 @@
 #include "../../Pch.h"
-#include "WindowsWindow.h"
+#include "LinuxWindow.h"
 
 #include "../Events/WindowEvent.h"
 #include "../Events/EngineEvent.h"
@@ -39,12 +39,71 @@ namespace DERPY {
         pHeight = Properties.Height;
 
         LOG_INFO_VAR(WindowsWindow::ToString());
+		InitVulkan();
+		InitGLFW();
 
+    }
+
+	void WindowsWindow::InitVulkan()
+	{
+		CreateInstance();
+	}
+
+	void WindowsWindow::CreateInstance()
+	{
+		VkApplicationInfo appInfo{};
+        appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+        appInfo.pApplicationName = "Triangle";
+        appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
+        appInfo.pEngineName = "no engine";
+        appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
+        appInfo.apiVersion = VK_API_VERSION_1_3;
+
+        VkInstanceCreateInfo createInfo{};
+        createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+        createInfo.pApplicationInfo = &appInfo;
+
+        uint32_t glfwExtensionCount = 0;
+        const char** glfwExtensions;
+
+        glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
+        createInfo.enabledExtensionCount = glfwExtensionCount;
+        createInfo.ppEnabledExtensionNames = glfwExtensions;
+        createInfo.enabledLayerCount = 0;
+    
+        VkResult result = vkCreateInstance(&createInfo, nullptr, &pInstance);
+    
+        if (result != VK_SUCCESS) {
+        	LOG_WARNING("No Vulkan Supported GPU Detected!");
+			LOG_WARNING("Falling back to Opengl");
+        }
+#define YES_VULKAN
+
+        uint32_t extensionCount = 0;
+        vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
+        std::vector<VkExtensionProperties> extensions(extensionCount);
+        vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, extensions.data());
+    
+        std::cout << "available extensions:\n";
+
+        for (const auto& extension : extensions) {
+            std::cout << '\t' << extension.extensionName << '\n';
+        }
+
+	}
+
+	void LinuxWindow::InitGLFW()
+	{
 		ASSERT(glfwInit(), "GLFW Not Initalized");
+
+#ifdef YES_VULKAN
+		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+#endif
 
         LOG_INFO("GLFW Initialized!");
 
-        pWindow = glfwCreateWindow((int)Properties.Width, (int)Properties.Height, pTitle.c_str(), nullptr, nullptr);
+        pWindow = glfwCreateWindow((int)pWidth, (int)pHeight, pTitle.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(pWindow);
 		glfwSetWindowUserPointer(pWindow, this);
         SetVSync(true);
@@ -58,7 +117,7 @@ namespace DERPY {
 			    WindowsWindow& win = *winPtr;
 			    win.pWidth = width;
 			    win.pHeight = height;
-			} 
+			}
 			else
 			{
 				ASSERT(winPtr, "winPtr is NULL!");
@@ -138,7 +197,7 @@ namespace DERPY {
 			MouseMovedEvent event((float)xPos, (float)yPos);
 			EventDispatcher::DispatchEvent(event);
 		});
-    }
+	}
 
     void WindowsWindow::Shutdown()
     {

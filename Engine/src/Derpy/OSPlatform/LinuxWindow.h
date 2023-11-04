@@ -1,5 +1,8 @@
 #include "../Window.h"
 
+#define GLFW_INCLUDE_VULKAN
+#include <GLFW/glfw3.h>
+
 namespace DERPY 
 {
     class LinuxWindow : public Window
@@ -20,6 +23,11 @@ namespace DERPY
 
     private:
         void Init(const WindowProperties& Properties);
+        void InitVulkan();
+        void InitGLFW();
+
+        void CreateInstance();
+
         void Shutdown();
 
         std::string ToString() 
@@ -31,6 +39,7 @@ namespace DERPY
 
     private:
         GLFWwindow* pWindow;
+        VkInstance pInstance;
 
         bool pVSync;
         unsigned int pWidth, pHeight;

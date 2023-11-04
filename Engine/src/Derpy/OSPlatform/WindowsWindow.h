@@ -1,5 +1,8 @@
 #include "../Window.h"
 
+#define GLFW_INCLUDE_VULKAN
+#include <GLFW/glfw3.h>
+
 namespace DERPY 
 {
     class WindowsWindow : public Window
@@ -31,6 +34,7 @@ namespace DERPY
 
     private:
         GLFWwindow* pWindow;
+        VkInstance pInstance;
 
         bool pVSync;
         unsigned int pWidth, pHeight;
