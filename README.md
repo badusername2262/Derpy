@@ -9,22 +9,26 @@ So, welcome to my foolish atempt at a Game Engine!!
 Unfortunately, there isn't much here at the moment.\
 This project is still new and is being maintained, albeit slowly.
 
+# ***Dependencies***
+This Project Requires Vulkan-sdk, gcc, g++, git and cmake to be installed on the system. if you are using msys2 please download these in mingw64 terminal with these commands.
+```shell
+pacman -S mingw-w64-x86_64-vulkan-devel
+pacman -S mingw-w64-x86_64-gcc
+pacman -S mingw-w64-x86_64-g++
+pacman -S git
+pacman -S mingw-w64-x86_64-cmake
+```
+
 ## How To Clone Derpy
 
-To clone Derpy and its Sub-Modules, all you need is the command line version of Git. Use this command in the terminal:
+To clone Derpy and its Sub-Modules, all you need is the command line version of Git. Use this command in the terminal.
 
 ```shell
 git clone --recurse-submodules https://github.com/badusername2262/DERPY
 ```
 
-# ***Dependencies***
-This Project Requires Vulkan sdk to be installed on the system. if you are using msys2 please download Vulkan in mingw64 terminal with this command:
-```shell
-pacman -S mingw-w64-x86_64-vulkan-devel
-```
-
 # ***Visual studio***
-Regrettably, I have permanently removed the Visual Studio build system from CMake, as it wasn't compiling or functioning correctly. While it's no longer supported, I may explore the possibility of reintroducing it in the future
+Regrettably, I have permanently removed the Visual Studio build system from CMake, as it wasn't compiling or functioning correctly. While it's no longer supported, I may explore the possibility of reintroducing it in the future.
 
 # ***Visual Studio Code***
 To use Visual Studio Code, you will need a C++ compiler. You can get a C++ compiler from **msys2.org**.
