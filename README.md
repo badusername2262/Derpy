@@ -1,6 +1,6 @@
 # Derpy
 
-**Welcome to the home of the Derpy Game Engine.**
+**Welcome to the home of Derpy Game Engine.**
 
 While the name "Derpy" is not an acronym, it is a fitting name.\
 The reason for this is that the definition of "Derpy" is "foolish or stupid."\
@@ -11,28 +11,22 @@ This project is still new and is being maintained, albeit slowly.
 
 ## How To Clone Derpy
 
-To clone Derpy and its Git Modules, all you need is the command line version of Git. Use this command in the terminal:
+To clone Derpy and its Sub-Modules, all you need is the command line version of Git. Use this command in the terminal:
 
 ```shell
 git clone --recurse-submodules https://github.com/badusername2262/DERPY
 ```
 
-# Visual Studio Cmake
-To compile the project in Visual Studio, you have to use CMake from the Derpy source directory.
-
->**Only tested in visual studio 17 2022**
-
-To build Derpy in Debug mode, use this command. This command generates the .sln file and compiles it in **Debug mode**:
-
-```Cmake 17 2022
-cmake -G"Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Debug -B build && cd build && cmake --build . --target ALL_BUILD --config Debug
+# ***Dependencies***
+This Project Requires Vulkan sdk to be installed on the system. if you are using msys2 please download Vulkan in mingw64 terminal with this command:
+```shell
+pacman -S mingw-w64-x86_64-vulkan-devel
 ```
 
-To build Derpy in Release mode, use this command. This command generates the .sln file and compiles it in **Release mode**:
-```Cmake 17 2022
-cmake -G"Visual Studio 17 2022" -DCMAKE_BUID_TYPE=Release -B build && cd build && cmake --build . --target ALL_BUILD --config Release
-```
-# Visual Studio Code
+# ***Visual studio***
+Regrettably, I have permanently removed the Visual Studio build system from CMake, as it wasn't compiling or functioning correctly. While it's no longer supported, I may explore the possibility of reintroducing it in the future
+
+# ***Visual Studio Code***
 To use Visual Studio Code, you will need a C++ compiler. You can get a C++ compiler from **msys2.org**.
 
 >**This way of compilation has only been tested with msys2 MinGW64 GCC 13.\
@@ -53,14 +47,14 @@ The first step is to open a terminal or CMake-GUI in **Derpy/Engine**. Once insi
 
 >**This one is for Windows systems with Msys2 Mingw64, as Ninja comes pre-installed with it.**
 
-```Cmake 17 2022
+```Cmake
 cmake -B build && cd build && Ninja
 ```
 This command should build **libGLFW.a, libEngine.dll, and libEngine.dll.a** in the **Derpy/Engine/bin** directory. **If you are building with Msys2 Mingw64.**
 
 For the second step, you have to go from **Derpy/Engine/build** to **Derpy/Game**. Once there, you will have to do what you did in step one.
 
-```Cmake 17 2022
+```Cmake
 cmake -B build && cd build && Ninja
 ```
 
@@ -77,14 +71,14 @@ The first step is to open a terminal or CMake-GUI in **Derpy/Engine**. Once insi
 
 >**This one is for Ubuntu systems with Gcc and G++ installed. Ubuntu should come with a version of Make installed.**
 
-```Cmake 17 2022
+```Cmake
 cmake -B build && cd build && Make
 ```
 This command should build **libGLFW.a, libEngine.dll, and libEngine.dll.a** in the **Derpy/Engine/bin** directory. **If you are building with Msys2 Mingw64.**
 
 For the second step, go from **Derpy/Engine/build** to **Derpy/Game**. Once there, do what you did in step one.
 
-```Cmake 17 2022
+```Cmake
 cmake -B build && cd build && Make
 ```
 But this time, instead of building the libraries, it will build **Game** in the **Derpy/Game/bin** directory.

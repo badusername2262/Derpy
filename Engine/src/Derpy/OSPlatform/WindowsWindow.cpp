@@ -1,5 +1,5 @@
 #include "../../Pch.h"
-#include "LinuxWindow.h"
+#include "WindowsWindow.h"
 
 #include "../Events/WindowEvent.h"
 #include "../Events/EngineEvent.h"
@@ -92,7 +92,7 @@ namespace DERPY {
 
 	}
 
-	void LinuxWindow::InitGLFW()
+	void WindowsWindow::InitGLFW()
 	{
 		ASSERT(glfwInit(), "GLFW Not Initalized");
 

@@ -1,6 +1,6 @@
 #include "../Window.h"
 
-#define GLFW_INCLUDE_VULKAN
+#include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
 
 namespace DERPY 
@@ -23,6 +23,11 @@ namespace DERPY
 
     private:
         void Init(const WindowProperties& Properties);
+        void InitVulkan();
+        void InitGLFW();
+
+        void CreateInstance();
+        
         void Shutdown();
 
         std::string ToString() 
