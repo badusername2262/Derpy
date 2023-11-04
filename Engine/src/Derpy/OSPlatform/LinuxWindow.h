@@ -1,6 +1,6 @@
 #include "../Window.h"
 
-#define GLFW_INCLUDE_VULKAN
+#include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
 
 namespace DERPY 
@@ -41,6 +41,7 @@ namespace DERPY
         GLFWwindow* pWindow;
         VkInstance pInstance;
 
+        bool IsVulkan = true;
         bool pVSync;
         unsigned int pWidth, pHeight;
         std::string pTitle;

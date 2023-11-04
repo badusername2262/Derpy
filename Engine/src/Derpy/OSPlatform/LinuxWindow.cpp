@@ -53,9 +53,9 @@ namespace DERPY {
 	{
 		VkApplicationInfo appInfo{};
         appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-        appInfo.pApplicationName = "Triangle";
+        appInfo.pApplicationName = pTitle.c_str();
         appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
-        appInfo.pEngineName = "no engine";
+        appInfo.pEngineName = "Derpy Engine";
         appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
         appInfo.apiVersion = VK_API_VERSION_1_3;
 
@@ -76,8 +76,11 @@ namespace DERPY {
         if (result != VK_SUCCESS) {
         	LOG_WARNING("No Vulkan Supported GPU Detected!");
 			LOG_WARNING("Falling back to Opengl");
+			IsVulkan = false;
         }
-#define YES_VULKAN
+
+		if(IsVulkan)
+		{
 
         uint32_t extensionCount = 0;
         vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
@@ -90,16 +93,18 @@ namespace DERPY {
             std::cout << '\t' << extension.extensionName << '\n';
         }
 
+		}
 	}
 
 	void LinuxWindow::InitGLFW()
 	{
 		ASSERT(glfwInit(), "GLFW Not Initalized");
 
-#ifdef YES_VULKAN
-		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-#endif
+		if(IsVulkan)
+		{
+			glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+			glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+		}
 
         LOG_INFO("GLFW Initialized!");
 
