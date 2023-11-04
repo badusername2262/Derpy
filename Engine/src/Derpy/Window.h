@@ -31,8 +31,6 @@ namespace DERPY
         virtual void SetVSync(bool Enabled) = 0;
         virtual bool GetVSync() const = 0;
 
-        virtual void SetEventCallback(const EventCallback& callback) = 0;
-
         static Window* Create(const WindowProperties& Properties = WindowProperties());
     };
 }

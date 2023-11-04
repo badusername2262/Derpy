@@ -14,8 +14,6 @@ namespace DERPY
 
         unsigned int GetWidth() const override { return pWidth; }
         unsigned int GetHeight() const override { return pHeight; }
-            
-        void SetEventCallback(const EventCallback& callback) override { pEventCallBack = callback; }
 
         void SetVSync(bool Enabled) override;
         bool GetVSync() const override;
@@ -39,6 +37,5 @@ namespace DERPY
         bool pVSync;
         unsigned int pWidth, pHeight;
         std::string pTitle;
-        EventCallback pEventCallBack;
     };
 }
