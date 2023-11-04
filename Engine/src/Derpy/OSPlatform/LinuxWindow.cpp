@@ -38,9 +38,9 @@ namespace DERPY {
         pWidth = Properties.Width;
         pHeight = Properties.Height;
 
-        LOG_INFO_VAR(LinuxWindow::ToString());
 		InitVulkan();
 		InitGLFW();
+        LOG_INFO_VAR(LinuxWindow::ToString());
 
     }
 
