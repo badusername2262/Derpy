@@ -11,7 +11,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set(EngineLibraryName "Engine.so")
 endif()
 
-include_directories(../Engine/external/GLFW/include/)
+include_directories(../Engine/external/GLFW/include/ ../Engine/external/glad/include/)
 
 set(Extern_HEADERS ../Engine/src/)
 

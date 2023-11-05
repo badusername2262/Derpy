@@ -1,6 +1,6 @@
 #include "../Window.h"
 
-#include <vulkan/vulkan.h>
+#include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
 namespace DERPY 
@@ -12,6 +12,7 @@ namespace DERPY
         virtual ~WindowsWindow();
 
         void OnUpdate() override;
+        void Clear() override;
 
         unsigned int GetWidth() const override { return pWidth; }
         unsigned int GetHeight() const override { return pHeight; }

@@ -55,6 +55,18 @@ namespace DERPY {
 		glfwSetWindowUserPointer(pWindow, this);
         SetVSync(true);
 
+		int version = gladLoadGL(glfwGetProcAddress);
+    	if (version == 0) {
+        	printf("Failed to initialize OpenGL context\n");
+    	}
+
+    	const GLubyte* glslVersion = glGetString(GL_SHADING_LANGUAGE_VERSION);
+    	if (glslVersion) {
+        	printf("GLSL Version: %s\n", glslVersion);
+    	} else {
+        	printf("Unable to retrieve GLSL version.\n");
+    	}
+
 		// Set GLFW callbacks
 		glfwSetWindowSizeCallback(pWindow, [](GLFWwindow* window, int width, int height)
 		{
@@ -148,7 +160,6 @@ namespace DERPY {
 
 	void WindowsWindow::InitGLAD()
 	{
-		
 	}
 
     void WindowsWindow::Shutdown()
@@ -157,6 +168,12 @@ namespace DERPY {
         glfwDestroyWindow(pWindow);
         glfwTerminate();
     }
+
+	void WindowsWindow::Clear()
+	{
+		glClearColor(1, 0, 1, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
+	}
 
     void WindowsWindow::OnUpdate()
     {

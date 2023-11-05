@@ -13,6 +13,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 endif()
 
 add_subdirectory(external/GLFW/)
+add_subdirectory(external/glad/)
 
 set(LIBRARY_OUTPUT_PATH ../bin)
 
@@ -21,8 +22,7 @@ include_directories(external/GLFW/include/ external/glad/include/)
 set(Windows_Engine_SOURCES 
         src/Derpy/Engine.cpp
         src/Derpy/OSPlatform/WindowsWindow.cpp
-        src/Derpy/logging/Logging.cpp
-        external/glad/src/glad.c)
+        src/Derpy/logging/Logging.cpp)
 
 set(Linux_Engine_SOURCES 
         src/Derpy/Engine.cpp
