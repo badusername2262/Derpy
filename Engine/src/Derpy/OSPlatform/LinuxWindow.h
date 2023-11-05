@@ -36,7 +36,6 @@ namespace DERPY
     private:
         GLFWwindow* pWindow;
 
-        bool IsVulkan = true;
         bool pVSync;
         unsigned int pWidth, pHeight;
         std::string pTitle;
