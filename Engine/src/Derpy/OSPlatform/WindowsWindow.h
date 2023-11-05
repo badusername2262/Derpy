@@ -22,7 +22,8 @@ namespace DERPY
     private:
         void Init(const WindowProperties& Properties);
         void InitGLFW();
-        
+        void InitGLAD();
+
         void Shutdown();
 
         std::string ToString() 

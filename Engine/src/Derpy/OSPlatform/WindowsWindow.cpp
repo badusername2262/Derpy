@@ -39,6 +39,7 @@ namespace DERPY {
         pHeight = Properties.Height;
 
 		InitGLFW();
+		InitGLAD();
         LOG_INFO_VAR(WindowsWindow::ToString());
 
     }
@@ -143,6 +144,11 @@ namespace DERPY {
 			MouseMovedEvent event((float)xPos, (float)yPos);
 			EventDispatcher::DispatchEvent(event);
 		});
+	}
+
+	void WindowsWindow::InitGLAD()
+	{
+		
 	}
 
     void WindowsWindow::Shutdown()
