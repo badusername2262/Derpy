@@ -23,7 +23,6 @@ namespace DERPY
 
     private:
         void Init(const WindowProperties& Properties);
-        void InitVulkan();
         void InitGLFW();
 
         void CreateInstance();
@@ -39,12 +38,9 @@ namespace DERPY
 
     private:
         GLFWwindow* pWindow;
-        VkInstance pInstance;
 
-        bool IsVulkan = true;
         bool pVSync;
         unsigned int pWidth, pHeight;
         std::string pTitle;
-        EventCallback pEventCallBack;
     };
 }

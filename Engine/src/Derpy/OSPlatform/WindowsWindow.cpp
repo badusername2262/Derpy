@@ -38,75 +38,14 @@ namespace DERPY {
         pWidth = Properties.Width;
         pHeight = Properties.Height;
 
-		InitVulkan();
 		InitGLFW();
         LOG_INFO_VAR(WindowsWindow::ToString());
 
     }
 
-	void WindowsWindow::InitVulkan()
-	{
-		CreateInstance();
-	}
-
-	void WindowsWindow::CreateInstance()
-	{
-		VkApplicationInfo appInfo{};
-        appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-        appInfo.pApplicationName = pTitle.c_str();
-        appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
-        appInfo.pEngineName = "Derpy Engine";
-        appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
-        appInfo.apiVersion = VK_API_VERSION_1_3;
-
-        VkInstanceCreateInfo createInfo{};
-        createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-        createInfo.pApplicationInfo = &appInfo;
-
-        VkResult result = vkCreateInstance(&createInfo, nullptr, &pInstance);
-
-        if (result != VK_SUCCESS)
-		{
-        	LOG_WARNING("No Vulkan Supported GPU Detected!");
-			LOG_WARNING("Falling back to Opengl");
-			vkDestroyInstance(pInstance, nullptr);
-			IsVulkan = false;
-        }
-
-		if(IsVulkan)
-		{
-
-		uint32_t glfwExtensionCount = 0;
-        const char** glfwExtensions;
-
-        glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
-        createInfo.enabledExtensionCount = glfwExtensionCount;
-        createInfo.ppEnabledExtensionNames = glfwExtensions;
-        createInfo.enabledLayerCount = 0;    
-
-        uint32_t extensionCount = 0;
-        vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
-        std::vector<VkExtensionProperties> extensions(extensionCount);
-        vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, extensions.data());
-    
-        std::cout << "available extensions:\n";
-
-        for (const auto& extension : extensions)
-		{
-            std::cout << '\t' << extension.extensionName << '\n';
-        }
-
-		}
-	}
-
 	void WindowsWindow::InitGLFW()
 	{
 		ASSERT(glfwInit(), "GLFW Not Initalized");
-
-		if(IsVulkan){
-			glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-			glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-		}
 
         LOG_INFO("GLFW Initialized!");
 

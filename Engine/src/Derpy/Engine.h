@@ -19,8 +19,9 @@ namespace DERPY {
 
         void Run();
 
-        void OnEvent(Event& event);
     private:
+        void OnEvent(Event& event);
+
         Window* pWindow;
     };
 }

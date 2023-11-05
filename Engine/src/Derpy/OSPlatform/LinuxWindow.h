@@ -1,6 +1,5 @@
 #include "../Window.h"
 
-#include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
 
 namespace DERPY 
@@ -23,10 +22,7 @@ namespace DERPY
 
     private:
         void Init(const WindowProperties& Properties);
-        void InitVulkan();
         void InitGLFW();
-
-        void CreateInstance();
 
         void Shutdown();
 
@@ -39,7 +35,6 @@ namespace DERPY
 
     private:
         GLFWwindow* pWindow;
-        VkInstance pInstance;
 
         bool IsVulkan = true;
         bool pVSync;

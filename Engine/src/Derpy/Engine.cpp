@@ -23,7 +23,7 @@ namespace DERPY {
         EventDispatcher::AddHandler(EventType::KeyPressed, std::bind(&Engine::OnEvent, this, std::placeholders::_1));
         EventDispatcher::AddHandler(EventType::KeyReleased, std::bind(&Engine::OnEvent, this, std::placeholders::_1));
     }
-    
+
     Engine::~Engine(){
         pWindow->~Window();
     }
