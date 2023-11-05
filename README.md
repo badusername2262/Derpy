@@ -9,17 +9,6 @@ So, welcome to my foolish atempt at a Game Engine!!
 Unfortunately, there isn't much here at the moment.\
 This project is still new and is being maintained, albeit slowly.
 
-Shield: [![CC BY NC ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
-
-This work is licensed under a
-[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence][cc-by-nc-nd].
-
-[![CC BY NC ND 4.0][cc-by-nc-nd-image]][cc-by-nc-nd]
-
-[cc-by-nc-nd]: https://creativecommons.org/licenses/by-nc-nd/4.0
-[cc-by-nc-nd-image]: https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png
-[cc-by-nc-nd-shield]: https://img.shields.io/badge/License-CC%20BY%20NC%20ND%204.0-lightgrey.svg
-
 # ***Dependencies***
 This Project Requires Vulkan-sdk, gcc, g++, git and cmake to be installed on the system. if you are using msys2 please download these in mingw64 terminal with these commands.
 ```shell
@@ -105,3 +94,15 @@ Hey, if you have read all the way through this README.md file, thank you. I spen
 
 Thanks,\
 Badusername2262.
+
+# License
+Shield: [![CC BY NC ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence][cc-by-nc-nd].
+
+[![CC BY NC ND 4.0][cc-by-nc-nd-image]][cc-by-nc-nd]
+
+[cc-by-nc-nd]: https://creativecommons.org/licenses/by-nc-nd/4.0
+[cc-by-nc-nd-image]: https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png
+[cc-by-nc-nd-shield]: https://img.shields.io/badge/License-CC%20BY%20NC%20ND%204.0-lightgrey.svg
