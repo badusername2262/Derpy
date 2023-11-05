@@ -96,7 +96,7 @@ Thanks,\
 Badusername2262.
 
 # License
-Shield: [![CC BY NC ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
+[![CC BY NC ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
 
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence][cc-by-nc-nd].
