@@ -38,7 +38,7 @@ endif()
 target_precompile_headers(Engine PRIVATE src/Pch.h)
 
 if(GLFW_BUILD_WIN32)
-    target_link_libraries(Engine GLFW opengl32)
+    target_link_libraries(Engine GLFW opengl32 glad)
 elseif(GLFW_BUILD_X11)
     target_link_libraries(Engine GLFW GL)
 endif()
