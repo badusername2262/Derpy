@@ -12,14 +12,13 @@ namespace DERPY
         virtual ~WindowsWindow();
 
         void OnUpdate() override;
-        void Clear() override;
+        void Run();
 
         unsigned int GetWidth() const override { return pWidth; }
         unsigned int GetHeight() const override { return pHeight; }
 
         void SetVSync(bool Enabled) override;
         bool GetVSync() const override;
-
     private:
         void Init(const WindowProperties& Properties);
         void InitGLFW();

@@ -89,7 +89,7 @@ namespace DERPY {
 			{
 				case GLFW_PRESS:
 				{
-					KeyPressedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key), 0);
+					KeyPressedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key));
 					EventDispatcher::DispatchEvent(event);
 					break;
 				}
@@ -101,7 +101,7 @@ namespace DERPY {
 				}
 				case GLFW_REPEAT:
 				{
-					KeyPressedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key), 1);
+					KeyRepeatedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key), 1);
 					EventDispatcher::DispatchEvent(event);
 					break;
 				}
@@ -169,11 +169,6 @@ namespace DERPY {
         glfwDestroyWindow(pWindow);
         glfwTerminate();
     }
-
-	void WindowsWindow::Clear()
-	{
-
-	}
 
     void WindowsWindow::OnUpdate()
     {

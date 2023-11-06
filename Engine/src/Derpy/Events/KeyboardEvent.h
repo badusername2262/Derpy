@@ -11,8 +11,8 @@ namespace DERPY {
 
         CLASS_CATEGORY_EVENT(KeyboardEvent | InputEvent);
     protected:
-        KeyEvent(int KeyCode)
-            :   pKeyCode(KeyCode) {}
+        KeyEvent(int keycode)
+            :   pKeyCode(keycode) {}
 
         int pKeyCode;
     };
@@ -20,7 +20,23 @@ namespace DERPY {
     class DERPY_API KeyPressedEvent : public KeyEvent
     {
     public:
-        KeyPressedEvent(int KeyCode, int RepeatCount)
+        KeyPressedEvent(int KeyCode)
+            :   KeyEvent(KeyCode){}
+
+        std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "Keyboard Key Pressed Event: " << pKeyCode;
+			return ss.str();
+		}
+    
+        CLASS_TYPE_EVENT(KeyPressed);
+    };
+
+    class DERPY_API KeyRepeatedEvent : public KeyEvent
+    {
+    public:
+        KeyRepeatedEvent(int KeyCode, int RepeatCount)
             :   KeyEvent(KeyCode), pRepeatCount(RepeatCount) {}
 
         inline int GetRepeatCount() const { return pRepeatCount; }
@@ -28,11 +44,11 @@ namespace DERPY {
         std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "Keyboard Key Pressed Event: " << pKeyCode << " (" << pRepeatCount << " RepeatCount)";
+			ss << "Keyboard Key Repeated Event: " << pKeyCode << " (" << pRepeatCount << " RepeatCount)";
 			return ss.str();
 		}
-    
-        CLASS_TYPE_EVENT(KeyPressed);
+
+        CLASS_TYPE_EVENT(KeyRepeated);
     private:
         int pRepeatCount;
     };

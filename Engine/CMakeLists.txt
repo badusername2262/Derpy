@@ -22,7 +22,10 @@ include_directories(external/GLFW/include/ external/glad/include/)
 set(Windows_Engine_SOURCES 
         src/Derpy/Engine.cpp
         src/Derpy/OSPlatform/WindowsWindow.cpp
-        src/Derpy/logging/Logging.cpp)
+        src/Derpy/logging/Logging.cpp
+        src/Derpy/Events/KeyboardInputMacros.cpp
+        src/Derpy/Layers/Layer.cpp
+        src/Derpy/Layers/LayerStack.cpp)
 
 set(Linux_Engine_SOURCES 
         src/Derpy/Engine.cpp

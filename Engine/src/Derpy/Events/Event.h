@@ -9,7 +9,7 @@ namespace DERPY {
         None = 0,
         WindowClose, WindowResised, WindowFocus, WindowLostFocuse, WindowMoved,
         EngineTick, EngineUpdate, EngineRender,
-        KeyPressed, KeyReleased,
+        KeyPressed, KeyReleased, KeyRepeated,
         MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
     };
 
