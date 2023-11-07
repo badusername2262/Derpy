@@ -22,7 +22,7 @@ include_directories(external/GLFW/include/ external/glad/include/)
 set(Windows_Engine_SOURCES 
         src/Derpy/Engine.cpp
         src/Derpy/OSPlatform/WindowsWindow.cpp
-        src/Derpy/logging/Logging.cpp
+        src/Derpy/Logging/Logging.cpp
         src/Derpy/Events/KeyboardInputMacros.cpp
         src/Derpy/Layers/Layer.cpp
         src/Derpy/Layers/LayerStack.cpp)
@@ -30,7 +30,10 @@ set(Windows_Engine_SOURCES
 set(Linux_Engine_SOURCES 
         src/Derpy/Engine.cpp
         src/Derpy/OSPlatform/LinuxWindow.cpp
-        src/Derpy/logging/Logging.cpp)
+        src/Derpy/Logging/Logging.cpp
+        src/Derpy/Events/KeyboardInputMacros.cpp
+        src/Derpy/Layers/Layer.cpp
+        src/Derpy/Layers/LayerStack.cpp)
 
 if(GLFW_BUILD_WIN32)
 add_library(Engine SHARED ${Windows_Engine_SOURCES})
@@ -41,7 +44,7 @@ endif()
 target_precompile_headers(Engine PRIVATE src/Pch.h)
 
 if(GLFW_BUILD_WIN32)
-    target_link_libraries(Engine GLFW opengl32 glad)
+    target_link_libraries(Engine GLFW opengl32 GLAD)
 elseif(GLFW_BUILD_X11)
-    target_link_libraries(Engine GLFW GL)
+    target_link_libraries(Engine GLFW GL GLAD)
 endif()

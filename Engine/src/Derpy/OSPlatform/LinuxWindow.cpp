@@ -39,6 +39,7 @@ namespace DERPY {
         pHeight = Properties.Height;
 
 		InitGLFW();
+		InitGLAD();
         LOG_INFO_VAR(LinuxWindow::ToString());
 
     }
@@ -88,7 +89,7 @@ namespace DERPY {
 			{
 				case GLFW_PRESS:
 				{
-					KeyPressedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key), 0);
+					KeyPressedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key));
 					EventDispatcher::DispatchEvent(event);
 					break;
 				}
@@ -100,7 +101,7 @@ namespace DERPY {
 				}
 				case GLFW_REPEAT:
 				{
-					KeyPressedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key), 1);
+					KeyRepeatedEvent event(Derpy_Macros::ConvertFromGLFWToDERPY(key), 1);
 					EventDispatcher::DispatchEvent(event);
 					break;
 				}
@@ -143,6 +144,23 @@ namespace DERPY {
 			MouseMovedEvent event((float)xPos, (float)yPos);
 			EventDispatcher::DispatchEvent(event);
 		});
+	}
+
+	void LinuxWindow::InitGLAD()
+	{
+		int version = gladLoadGL(glfwGetProcAddress);
+    	if (version == 0) {
+        	LOG_ERROR("Failed to initialize OpenGL context");
+    	}
+
+    	const GLubyte* glslVersion = glGetString(GL_SHADING_LANGUAGE_VERSION);
+    	if (glslVersion) {
+			std::stringstream ss;
+			ss << "GLSL Version: " << glslVersion;
+        	LOG_INFO_VAR(ss.str());
+    	} else {
+        	printf("Unable to retrieve GLSL version.\n");
+    	}
 	}
 
     void LinuxWindow::Shutdown()

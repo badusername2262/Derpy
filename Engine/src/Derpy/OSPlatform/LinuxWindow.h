@@ -1,5 +1,6 @@
 #include "../Window.h"
 
+#include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
 namespace DERPY 
@@ -17,10 +18,10 @@ namespace DERPY
 
         void SetVSync(bool Enabled) override;
         bool GetVSync() const override;
-
     private:
         void Init(const WindowProperties& Properties);
         void InitGLFW();
+        void InitGLAD();
 
         void Shutdown();
 

@@ -5,7 +5,7 @@
 
 namespace DERPY
 {
-    Derpy_Macros::ConvertFromGLFWToDERPY(int Key)
+    int Derpy_Macros::ConvertFromGLFWToDERPY(int Key)
     {
         switch(Key)
         {

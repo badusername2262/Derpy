@@ -12,7 +12,6 @@ namespace DERPY
         virtual ~WindowsWindow();
 
         void OnUpdate() override;
-        void Run();
 
         unsigned int GetWidth() const override { return pWidth; }
         unsigned int GetHeight() const override { return pHeight; }
