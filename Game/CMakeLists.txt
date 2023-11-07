@@ -5,10 +5,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     add_compile_definitions(DRPY_PLATFORM_WINDOWS)
-    set(EngineLibraryName "libEngine.dll")
+    add_compile_options(-fPIC)
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     add_compile_definitions(DRPY_PLATFORM_LINUX)
-    set(EngineLibraryName "Engine.so")
+    add_compile_options(-fPIC)
 endif()
 
 include_directories(../Engine/external/GLFW/include/ ../Engine/external/glad/include/)
@@ -21,7 +21,11 @@ add_executable(Game ${Game_SOURCES})
 
 link_directories(../Engine/bin/)
 
-find_library(ENGINE_LIBRARY libEngine.dll HINTS ${CMAKE_SOURCE_DIR}/../Engine/bin)
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    find_library(ENGINE_LIBRARY Engine HINTS ${CMAKE_SOURCE_DIR}/../Engine/bin)
+elseif(CMAKE_SYSTEM_ STREQUAL "linux")
+    find_library(ENGINE_LIBRARY Engine HINTS ${CMAKE_SOURCE_DIR}/../Engine/bin)
+endif()
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 target_link_libraries(Game PRIVATE ${ENGINE_LIBRARY})

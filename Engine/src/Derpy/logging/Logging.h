@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Core.h"
+
 // Define ANSI escape codes for text colors
 #define ANSI_COLOUR_RED     "\x1b[31m"
 #define ANSI_COLOUR_GREEN   "\x1b[32m"
@@ -17,7 +19,7 @@
 #endif
 
 // Define a function to format a timestamp
-std::string format_timestamp();
+DERPY_API std::string format_timestamp();
 
 // Define macros for logging at different levels
 #define LOG_INFO_VAR(var)    if (LOG_LEVEL <= LOG_LEVEL_INFO)    std::cout << ANSI_COLOUR_GREEN << "[" << format_timestamp() << "] [INFO] " << var << ANSI_COLOUR_RESET << std::endl
