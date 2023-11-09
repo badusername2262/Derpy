@@ -10,12 +10,10 @@ public:
 
     void OnUpdate() override
     {
-        LOG_INFO("haha");
     }
 
     void OnEvent(DERPY::Event& event) override
     {
-        LOG_INFO_VAR(event.GetName());
     }
 };
 

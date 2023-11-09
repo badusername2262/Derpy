@@ -17,7 +17,7 @@ add_subdirectory(external/glad/)
 
 set(LIBRARY_OUTPUT_PATH ../bin)
 
-include_directories(external/GLFW/include/ external/glad/include/)
+include_directories(external/GLFW/include/ external/glad/include/ external/stb_image)
 
 set(Windows_Engine_SOURCES 
         src/Derpy/Engine.cpp
