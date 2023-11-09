@@ -29,7 +29,6 @@ namespace DERPY {
 
         void Run();
 
-        int OnKeyPress();
         int OnKeyReleaseEvent(unsigned int DERPY_KEY_TYPE);
         int OnKeyRepeateEvent(unsigned int DERPY_KEY_TYPE);
         
@@ -44,7 +43,5 @@ namespace DERPY {
         Window* pWindow;
         LayerStack pLayerStack;
         bool pRunning = true;
-
-        unsigned int pKey;
     };
 }

@@ -71,7 +71,6 @@ namespace DERPY {
             case EventType::KeyPressed :
             {
                 KeyPressedEvent& KeyPressEvent = static_cast<KeyPressedEvent&>(event);
-                Engine::pKey = KeyPressEvent.GetKeyCode();
                 LOG_INFO_VAR(KeyPressEvent.ToString());
                 event.SetHandled(true);
                 break;
@@ -121,11 +120,6 @@ namespace DERPY {
                 event.SetHandled(true);
             }
         }
-    }
-
-    int Engine::OnKeyPress()
-    {
-        return Engine::pKey;
     }
 
     void Engine::AddLayer(Layer* layer)
