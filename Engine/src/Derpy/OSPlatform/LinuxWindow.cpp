@@ -161,8 +161,10 @@ namespace DERPY {
     	} else {
         	printf("Unable to retrieve GLSL version.\n");
     	}
-
-		std::cout << "glad version: " << GLAD_VERSION_MAJOR(version) << GLAD_VERSION_MINOR(version) << "0" << std::endl;
+		
+		std::stringstream ss;
+		ss << "glad version: " << GLAD_VERSION_MAJOR(version) << "." << GLAD_VERSION_MINOR(version) << std::endl;
+		LOG_INFO_VAR(ss.str());
 	}
 
     void LinuxWindow::Shutdown()
