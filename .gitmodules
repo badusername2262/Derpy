@@ -1,3 +1,6 @@
 [submodule "Engine/external/GLFW"]
 	path = Engine/external/GLFW
 	url = https://github.com/badusername2262/glfw
+[submodule "Engine/external/GLM"]
+	path = Engine/external/GLM
+	url = https://github.com/badusername2262/glm
