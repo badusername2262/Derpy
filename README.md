@@ -4,22 +4,27 @@
 
 While the name "Derpy" is not an acronym, it is a fitting name.\
 The reason for this is that the definition of "Derpy" is "foolish or stupid."\
-So, welcome to my foolish atempt at a Game Engine!!
-
+So, welcome to my foolish atempt at a Game Engine!!\
 Unfortunately, there isn't much here at the moment.\
 This project is still new and is being maintained, albeit slowly.
 
 # ***Dependencies***
-This Project Requires Vulkan-sdk, gcc, g++, git and cmake to be installed on the system. if you are using msys2 please download these in mingw64 terminal with these commands.
+This Project Requires gcc/g++ Compilers, git and cmake to be installed on the system. if you are using msys2 please download these in mingw64 terminal with these commands.
 ```shell
-pacman -S mingw-w64-x86_64-vulkan-devel
 pacman -S mingw-w64-x86_64-gcc
 pacman -S mingw-w64-x86_64-g++
 pacman -S git
 pacman -S mingw-w64-x86_64-cmake
 ```
 
-## How To Clone Derpy
+If you are on a linux distro please use the respective commands for downloading these dependencies.
+```shell
+sudo apt-get install gcc g++ git cmake
+sudo dnf install gcc gcc-c++ git cmake
+sudo pacman -S gcc git cmake
+```
+
+## Cloning Derpy
 
 To clone Derpy and its Sub-Modules, all you need is the command line version of Git. Use this command in the terminal.
 
