@@ -33,9 +33,7 @@ set(Linux_Engine_SOURCES
         src/Derpy/Logging/Logging.cpp
         src/Derpy/Events/KeyboardInputMacros.cpp
         src/Derpy/Layers/Layer.cpp
-        src/Derpy/Layers/LayerStack.cpp
-        src/Derpy/Renderer/Buffers/Buffer.cpp
-        src/Derpy/Renderer/Buffers/IndexBuffer.cpp)
+        src/Derpy/Layers/LayerStack.cpp)
 
 if(GLFW_BUILD_WIN32)
 add_library(Engine SHARED ${Windows_Engine_SOURCES})
