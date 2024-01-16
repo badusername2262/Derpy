@@ -1,5 +1,4 @@
 # Derpy
-![alt text](https://github.com/badusername2262/Derpy/blob/main/logo%20test%202.png?raw=true)
 **Welcome to the home of Derpy Game Engine.**
 
 While the name "Derpy" is not an acronym, it is a fitting name.\
@@ -8,6 +7,7 @@ So, welcome to my foolish atempt at a Game Engine!!\
 Unfortunately, there isn't much here at the moment.\
 This project is still new and is being maintained, albeit slowly.
 
+![alt text](https://github.com/badusername2262/Derpy/blob/main/logo%20test%202.png?raw=true)
 # ***Dependencies***
 This Project Requires gcc/g++ Compilers, git and cmake to be installed on the system. if you are using msys2 please download these in mingw64 terminal with these commands.
 ```shell
