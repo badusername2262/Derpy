@@ -1,4 +1,4 @@
-# Derpy
+# ***Derpy***
 **Welcome to the home of Derpy Game Engine.**
 
 While the name "Derpy" is not an acronym, it is a fitting name.\
@@ -24,7 +24,7 @@ sudo dnf install gcc gcc-c++ git cmake
 sudo pacman -S gcc git cmake
 ```
 
-## Cloning Derpy
+## ***Cloning Derpy***
 
 To clone Derpy and its Sub-Modules, all you need is the command line version of Git. Use this command in the terminal.
 
@@ -47,7 +47,7 @@ First, you have to build the **Engine project**. After it has finished compiling
 After you have compiled both, move the .dll file from **Derpy/Engine/bin/Engine.dll** to **Derpy/Game/bin** where Game.exe is located.\
 Once you have done that, you should be able to run the **Game.exe** executable without any issues.
 
-# In-Source Build With Cmake For Windows
+# ***In-Source Build With Cmake For Windows***
 If you are planning to build in source, there are 3 steps at the moment.
 
 The first step is to open a terminal or CMake-GUI in **Derpy/Engine**. Once inside, build the CMake file for your Generator of choice.
@@ -71,7 +71,7 @@ But this time, instead of building the libraries, it will build **Game.exe** in 
 
 That will conclude the first and second steps respectively. As for the third step, all you need to do is copy **libEngine.dll** from **Derpy/Engine/bin** to *Derpy/Game/bin**. Once you have done this, you should be able to run **Game.exe** located in **Derpy/Game/bin** directory without any errors, as long as it is running through the **Msys2 Terminal** unless you have added **c:/msys64/mingw64/bin** to your system environment variables.
 
-# In-Source Build With CMake For Linux
+# ***In-Source Build With CMake For Linux***
 If you are planning to build in source on Linux, there are only two steps to this.
 
 The first step is to open a terminal or CMake-GUI in **Derpy/Engine**. Once inside, build the CMake file for your Generator of choice.
@@ -94,13 +94,13 @@ But this time, instead of building the libraries, it will build **Game** in the 
 
 After you have completed these two steps, you should be able to run **Game**, even without the use of a terminal.
 
-# End of README.md
+# ***End of README.md***
 Hey, if you have read all the way through this README.md file, thank you. I spent a long time writing this as this is my first proper attempt at making a Game Engine. If you have any feedback about this README file, please send it to Badusername2262@gmail.com. I would love to read your feedback.
 
 Thanks,\
 Badusername2262.
 
-# License
+# ***License***
 [![CC BY NC ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
 
 This work is licensed under a
