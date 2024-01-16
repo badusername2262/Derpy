@@ -1,5 +1,7 @@
 # Derpy
 
+![alt text](https://github.com/badusername2262/Derpy/blob/main/logo%20test%202.png?raw=true)
+
 **Welcome to the home of Derpy Game Engine.**
 
 While the name "Derpy" is not an acronym, it is a fitting name.\
